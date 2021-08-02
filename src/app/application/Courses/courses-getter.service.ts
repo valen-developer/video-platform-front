@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Course } from 'src/app/domain/Course/Course.model';
 import { CourseRepository } from 'src/app/domain/Course/interfaces/CourseRepository';
 

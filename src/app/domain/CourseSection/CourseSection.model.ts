@@ -13,6 +13,7 @@ export class CourseSection {
     this.uuid = new UUID(section.uuid);
     this.title = new CourseSectionTitle(section.title);
     this.videos = section.videos ?? [];
+    this.duration = new Duration(section.duration ?? 0);
   }
 
   public toObject(): CourseSectionObject {

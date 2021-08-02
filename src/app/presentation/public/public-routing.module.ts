@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CourseViewComponent } from './pages/course-view/course-view.component';
+
 import { HomeComponent } from './pages/home/home.component';
 import { PublicComponent } from './public.component';
 
@@ -9,6 +11,7 @@ const routes: Routes = [
     component: PublicComponent,
     children: [
       { path: '', component: HomeComponent },
+      { path: 'course', component: CourseViewComponent },
       { path: '**', pathMatch: 'full', redirectTo: '' },
     ],
   },

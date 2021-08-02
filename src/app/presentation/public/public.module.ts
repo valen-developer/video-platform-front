@@ -7,9 +7,18 @@ import { PublicComponent } from './public.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CourseCardComponent } from './components/course-card/course-card.component';
 import { CourseGridComponent } from './components/course-grid/course-grid.component';
+import { CourseViewComponent } from './pages/course-view/course-view.component';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
 @NgModule({
-  declarations: [PublicComponent, HomeComponent, CourseCardComponent, CourseGridComponent],
+  declarations: [
+    PublicComponent,
+    HomeComponent,
+    CourseCardComponent,
+    CourseGridComponent,
+    CourseViewComponent,
+    VideoPlayerComponent,
+  ],
   imports: [CommonModule, PublicRoutingModule],
 })
 export class PublicModule {}
