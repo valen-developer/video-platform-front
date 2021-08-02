@@ -1,0 +1,97 @@
+$background-light: #f4f9ff;
+$background-dark: #051a35;
+
+$background-card-light: #ffffff;
+$background-card-dark: #02142b;
+
+$text-primary-light: #010914;
+$text-secondary-light: #282e35;
+
+$text-primary-dark: #f4f9ff;
+$text-secondary-dark: #565b61;
+
+$primary: #b4f092;
+$secondary: #f07a7d;
+$third: #c9aaf0;
+$secondary-complement: #f0ee86;
+$third-complement: #9ef0b4;
+
+$succes: #5cf067;
+$warning: #f0e13e;
+$danger: #f05249;
+
+:root {
+  --background-light: #f4f9ff;
+  --background-dark: #051a35;
+
+  --background-card-light: #ffffff;
+  --background-card-dark: #02142b;
+
+  --text-primary-light: #010914;
+  --text-secondary-light: #282e35;
+
+  --text-primary-dark: #f4f9ff;
+  --text-secondary-dark: #565b61;
+
+  --primary: #b4f092;
+  --secondary: #f07a7d;
+  --third: #c9aaf0;
+  --secondary-complement: #f0ee86;
+  --third-complement: #9ef0b4;
+
+  --succes: #5cf067;
+  --warning: #f0e13e;
+  --danger: #f05249;
+}
+
+.theme-light {
+  //backgrounds
+  --background: var(--background-light);
+  --background-card: var(--background-card-light);
+  --background-navbar: var(--background-dark);
+  --background-contrast: var(--background-dark);
+
+  // Texts
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --text-contrast-primary: var(--text-primary-dark);
+  --text-contrast-secondary: var(--text-secondary-dark);
+
+  //App colors
+  --primary: var(--primary);
+  --secondary: var(--secondary);
+  --third: var(--third);
+  --secondary-complement: var(--secondary-complement);
+  --third-complement: var(--third-complement);
+
+  // Notifications
+  --succes: var(--succes);
+  --warning: var(--warning);
+  --danger: var(--danger);
+}
+
+.theme-dark {
+  //backgrounds
+  --background: var(--background-dark);
+  --background-card: var(--background-card-dark);
+  --background-navbar: var(--background-light);
+  --background-contrast: var(--background-light);
+
+  // Texts
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --text-contrast-primary: var(--text-primary-light);
+  --text-contrast-secondary: var(--text-secondary-light);
+
+  //App colors
+  --primary: var(--primary);
+  --secondary: var(--secondary);
+  --third: var(--third);
+  --secondary-complement: var(--secondary-complement);
+  --third-complement: var(--third-complement);
+
+  //Notifications
+  --succes: var(--succes);
+  --warning: var(--warning);
+  --danger: var(--danger);
+}
