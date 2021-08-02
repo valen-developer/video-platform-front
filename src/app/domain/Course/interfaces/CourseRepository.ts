@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Course } from '../Course.model';
 
-export interface CourseRepository {
-  getAll(): Observable<Course[]>;
-  getCourse(uuid: string): Observable<Course>;
+export abstract class CourseRepository {
+  abstract getAll(): Observable<Course[]>;
+  abstract getCourse(uuid: string): Observable<Course>;
 }

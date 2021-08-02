@@ -1,5 +1,5 @@
-import { NotNull } from '../../../shared/domain/NotNull';
-import { ValueObject } from '../../../shared/domain/valueObjects/valueObject.interface';
+import { NotNull } from '../../shared/NotNull';
+import { ValueObject } from '../../shared/valueObjects/valueObject.interface';
 
 export class VideoPath extends NotNull implements ValueObject {
   public readonly value: string;

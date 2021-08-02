@@ -1,4 +1,4 @@
-import { ValueObject } from '../../../shared/domain/valueObjects/valueObject.interface';
+import { ValueObject } from '../../shared/valueObjects/valueObject.interface';
 
 export class CourseDescription implements ValueObject {
   public readonly value: string;

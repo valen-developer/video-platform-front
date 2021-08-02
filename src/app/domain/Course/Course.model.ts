@@ -1,7 +1,10 @@
-import { CourseSection } from '../CourseSection/CourseSection.model';
+import {
+  CourseSection,
+  CourseSectionObject,
+} from '../CourseSection/CourseSection.model';
 import { Duration } from '../shared/valueObjects/Duration.vaueObject';
 import { UUID } from '../shared/valueObjects/uuid.valueObject';
-import { Video } from '../Video/video.model';
+import { Video, VideoObject } from '../Video/video.model';
 import { CourseDescription } from './valueObject/CourseDescription.valueObject';
 import { CourseTitle } from './valueObject/CourseTitle.valueObject';
 
@@ -17,6 +20,7 @@ export class Course {
     this.uuid = new UUID(course.uuid);
     this.title = new CourseTitle(course.title);
     this.description = new CourseDescription(course.description);
+    this.duration = new Duration(course.duration ?? 0);
     this._videos = course.videos ?? [];
     this._sections = course.sections ?? [];
   }

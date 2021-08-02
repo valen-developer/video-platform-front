@@ -1,0 +1,10 @@
+<div class="video-grid">
+  <h3 class="title">Titulo</h3>
+
+  <div class="grid">
+    <app-course-card
+      *ngFor="let course of courses"
+      [course]="course"
+    ></app-course-card>
+  </div>
+</div>
