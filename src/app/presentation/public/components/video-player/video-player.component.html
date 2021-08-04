@@ -1,1 +1,9 @@
-<p>video-player works!</p>
+<div class="player">
+  <vm-player muted autoplay>
+    <vm-video crossOrigin="true" ç>
+      <source [src]="videoUrl" type="video/mp4" />
+    </vm-video>
+
+    <vm-default-ui></vm-default-ui>
+  </vm-player>
+</div>

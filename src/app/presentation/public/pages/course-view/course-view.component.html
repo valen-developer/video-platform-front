@@ -1,1 +1,14 @@
-<p>course-view works!</p>
+<div class="content">
+  <div class="player">
+    <app-video-player [videoUrl]="videoUrl" *ngIf="videoUrl"></app-video-player>
+  </div>
+  <div class="sections">
+    <app-sections-accordion
+      *ngIf="course?.sections"
+      [sections]="course?.sections"
+      [videos]="course?.videos"
+      [selectedVideo]="selectedVideo"
+      (selectedVideoEmitter)="selectVideo($event)"
+    ></app-sections-accordion>
+  </div>
+</div>

@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseRepository } from './domain/Course/interfaces/CourseRepository';
 import { ApiCourseRepositoryService } from './infrastructure/repositories/api-course-repository.service';
+import { VideoRepository } from './domain/Video/interfaces/VideoRepository';
+import { ApiVideoRepositoryService } from './infrastructure/repositories/api-video-repository.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +16,10 @@ import { ApiCourseRepositoryService } from './infrastructure/repositories/api-co
     {
       provide: CourseRepository,
       useClass: ApiCourseRepositoryService,
+    },
+    {
+      provide: VideoRepository,
+      useClass: ApiVideoRepositoryService,
     },
   ],
   bootstrap: [AppComponent],

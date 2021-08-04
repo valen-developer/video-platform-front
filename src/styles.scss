@@ -2,6 +2,15 @@
 @import "./assets/theme/colors.scss";
 @import "./assets/theme/properties.scss";
 
+/*
+  Video Player styles
+*/
+/* Default theme. ~960B */
+@import "~@vime/core/themes/default.css";
+
+/* Optional light theme (extends default). ~400B */
+@import "~@vime/core/themes/light.css";
+
 * {
   margin: 0;
   padding: 0;

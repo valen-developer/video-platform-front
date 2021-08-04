@@ -1,0 +1,47 @@
+.sections-accordion {
+  display: flex;
+  flex-direction: column;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  background-color: var(--secondary);
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s;
+}
+.video {
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  transition: 0.3s;
+  &:hover {
+    background-color: #55e203;
+  }
+}
+.video.active {
+  background-color: #55e203;
+}
+
+.accordion.active,
+.accordion:hover {
+  background-color: #b33515;
+  color: var(--text-primary-dark);
+}
