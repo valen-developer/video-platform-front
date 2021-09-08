@@ -4,8 +4,15 @@
 }
 
 .player {
-  width: 100%;
+  width: 70vw;
 }
 .sections {
-  width: 20%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 30vw;
+  overflow-y: auto;
+  background-color: var(--background-contrast);
+  padding-bottom: 1rem;
 }

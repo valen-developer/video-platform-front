@@ -1,7 +1,7 @@
 <div class="sections-accordion">
   <div class="section" *ngFor="let section of sections; let i = index">
-    <button class="accordion" #accordion>
-      {{ i + 1 }}-{{ section.title.value }}
+    <button class="accordion-title" #accordion>
+      {{ i + 1 }}- {{ section.title.format() }}
     </button>
     <div class="panel">
       <div
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="section">
-    <button class="accordion" #accordion>Videos</button>
+    <button class="accordion-title" #accordion>Videos</button>
     <div class="panel">
       <div
         class="video"

@@ -9,8 +9,8 @@ export class CourseSectionTitle extends NotNull implements ValueObject {
     this.value = value;
   }
 
-  private formatTitle(value: string): string {
-    const title = value.replace(/\d/g, '');
+  public format(): string {
+    const title = this.value.replace(/\d/g, '');
     return title;
   }
 }

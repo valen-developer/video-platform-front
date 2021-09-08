@@ -66,6 +66,7 @@ export class Course {
     this._sections.sort((sc, sp) => {
       const previus = Number(
         sp.title.value
+          .replace('.', ' .-')
           .replace('-', ' ')
           .split(' ', 1)
           .join()
@@ -76,6 +77,7 @@ export class Course {
 
       const actual = Number(
         sc.title.value
+          .replace('.', ' .')
           .replace('-', ' ')
           .split(' ', 1)
           .join()
@@ -83,6 +85,8 @@ export class Course {
           .join()
           .replace(',', '')
       );
+
+      console.log(previus, actual);
 
       return actual - previus;
     });

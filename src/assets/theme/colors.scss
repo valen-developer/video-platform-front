@@ -33,11 +33,17 @@ $danger: #f05249;
   --text-primary-dark: #f4f9ff;
   --text-secondary-dark: #565b61;
 
-  --primary: #b4f092;
-  --secondary: #f07a7d;
-  --third: #c9aaf0;
-  --secondary-complement: #f0ee86;
-  --third-complement: #9ef0b4;
+  --primary-light: #3c55db;
+  --secondary-light: #db9d51;
+  --third-light: #dbd525;
+  --secondary-complement-light: #30a4db;
+  --third-complement-light: #8046db;
+
+  --primary-dark: #72badb;
+  --secondary-dark: #dbbd5c;
+  --third-dark: #db9d88;
+  --secondary-complement-dark: #7d8cdb;
+  --third-complement-dark: #67dbc1;
 
   --succes: #5cf067;
   --warning: #f0e13e;
@@ -58,11 +64,11 @@ $danger: #f05249;
   --text-contrast-secondary: var(--text-secondary-dark);
 
   //App colors
-  --primary: var(--primary);
-  --secondary: var(--secondary);
-  --third: var(--third);
-  --secondary-complement: var(--secondary-complement);
-  --third-complement: var(--third-complement);
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --third: var(--third-light);
+  --secondary-complement: var(--secondary-complement-light);
+  --third-complement: var(--third-complement-light);
 
   // Notifications
   --succes: var(--succes);

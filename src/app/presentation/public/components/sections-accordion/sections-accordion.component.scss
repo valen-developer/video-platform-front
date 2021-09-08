@@ -7,13 +7,14 @@
   flex-direction: column;
 }
 
-.accordion {
+.accordion-title {
   display: flex;
   justify-content: flex-start;
-  padding: 0.5rem;
-  background-color: var(--secondary);
+  padding: 0.8rem;
+  background-color: var(--background-contrast);
+  color: var(--text-contrast-primary);
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--text-contrast-secondary);
   font-size: 1rem;
   transition: 0.3s;
   cursor: pointer;
@@ -22,26 +23,31 @@
 .panel {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   overflow: hidden;
   max-height: 0;
   transition: 0.3s;
+  color: var(--text-primary);
 }
 .video {
   cursor: pointer;
   padding: 0.5rem;
-  background-color: var(--primary);
+  background-color: var(--background);
   transition: 0.3s;
   &:hover {
-    background-color: #55e203;
+    background-color: var(--primary);
+    color: var(--text-contrast-primary);
   }
 }
 .video.active {
-  background-color: #55e203;
+  background-color: var(--secondary);
+  color: var(--text-primary);
+}
+.video:nth-last-child(1) {
+  margin-bottom: 1rem;
 }
 
 .accordion.active,
 .accordion:hover {
-  background-color: #b33515;
-  color: var(--text-primary-dark);
+  background-color: var(--primary);
+  color: var(--text-contrast-primary);
 }
