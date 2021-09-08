@@ -6,13 +6,11 @@ export class CourseSectionTitle extends NotNull implements ValueObject {
 
   constructor(value: string) {
     super(value, 'section title');
-    this.value = this.formatTitle(value);
+    this.value = value;
   }
 
   private formatTitle(value: string): string {
     const title = value.replace(/\d/g, '');
-
-    console.log(title);
     return title;
   }
 }

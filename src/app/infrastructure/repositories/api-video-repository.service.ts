@@ -1,8 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { VideoRepository } from 'src/app/domain/Video/interfaces/VideoRepository';
 import { environment } from 'src/environments/environment';
 
@@ -25,8 +27,6 @@ export class ApiVideoRepositoryService implements VideoRepository {
           return this.domSanitizer.bypassSecurityTrustUrl(
             URL.createObjectURL(blob)
           );
-
-          return video;
         })
       );
   }

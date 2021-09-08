@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SafeUrl } from '@angular/platform-browser';
 import { Course } from 'src/app/domain/Course/Course.model';
 
 @Component({
@@ -11,7 +10,7 @@ export class CourseCardComponent implements OnInit {
   @Input() public course: Course;
 
   public title = 'Sin titulo';
-  public imageUrl = '../../../../../assets/images/online-course.svg';
+  public imageUrl = '../../../../../assets/images/no-image.jpg';
   public duration = '';
 
   constructor() {}

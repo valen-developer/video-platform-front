@@ -8,6 +8,7 @@ import { Course } from 'src/app/domain/Course/Course.model';
 })
 export class CourseGridComponent implements OnInit {
   @Input() public courses: Course[] = [];
+  @Input() public title = 'Cursos';
 
   constructor() {}
 

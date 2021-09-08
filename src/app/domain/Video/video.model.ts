@@ -1,18 +1,18 @@
+import { Duration } from '../shared/valueObjects/Duration.vaueObject';
 import { UUID } from '../shared/valueObjects/uuid.valueObject';
-import { VideoDuration } from './valueObjects/VideoDuration.valueObject';
 import { VideoPath } from './valueObjects/VideoPath.valueObject';
 import { VideoTitle } from './valueObjects/VideoTitle.valueObject';
 
 export class Video {
   public readonly uuid: UUID;
   public readonly title: VideoTitle;
-  public readonly duration: VideoDuration;
+  public readonly duration: Duration;
   public readonly path: VideoPath;
 
   constructor(video: VideoObject) {
     this.uuid = new UUID(video.uuid);
     this.title = new VideoTitle(video.title);
-    this.duration = new VideoDuration(video.duration);
+    this.duration = new Duration(video.duration);
     this.path = new VideoPath(video.path);
   }
 

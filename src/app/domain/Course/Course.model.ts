@@ -23,6 +23,7 @@ export class Course {
     this.duration = new Duration(course.duration ?? 0);
     this._videos = course.videos ?? [];
     this._sections = course.sections ?? [];
+    this.sortSections();
   }
 
   get sections() {
@@ -59,6 +60,32 @@ export class Course {
 
   public removeVideo(uuid: string): void {
     this._videos = [...this.videos.filter((v) => v.uuid.value !== uuid)];
+  }
+
+  public sortSections(): void {
+    this._sections.sort((sc, sp) => {
+      const previus = Number(
+        sp.title.value
+          .replace('-', ' ')
+          .split(' ', 1)
+          .join()
+          .split('.')
+          .join()
+          .replace(',', '')
+      );
+
+      const actual = Number(
+        sc.title.value
+          .replace('-', ' ')
+          .split(' ', 1)
+          .join()
+          .split('.')
+          .join()
+          .replace(',', '')
+      );
+
+      return actual - previus;
+    });
   }
 }
 

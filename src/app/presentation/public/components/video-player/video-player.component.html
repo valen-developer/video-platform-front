@@ -1,6 +1,6 @@
 <div class="player">
-  <vm-player muted autoplay>
-    <vm-video crossOrigin="true" ç>
+  <vm-player #player (vmReady)="onReady()" [currentTime]="currentTime">
+    <vm-video crossOrigin="true">
       <source [src]="videoUrl" type="video/mp4" />
     </vm-video>
 

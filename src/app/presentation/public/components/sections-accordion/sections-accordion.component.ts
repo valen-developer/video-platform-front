@@ -32,10 +32,7 @@ export class SectionsAccordionComponent implements OnInit, AfterViewInit {
 
   constructor(private renderer: Renderer2) {}
 
-  ngOnInit(): void {
-    console.log(this.sections);
-    console.log(this.videos);
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.listenAccordion();

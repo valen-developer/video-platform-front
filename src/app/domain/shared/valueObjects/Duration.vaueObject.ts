@@ -13,8 +13,6 @@ export class Duration implements ValueObject {
     const m = s / 60;
     const h = m / 60;
 
-    console.log(this.value);
-
     if (m >= 60) {
       const hours = Math.floor(h);
       const minutes = roundUp((h % 1) * 60, 0);
@@ -27,7 +25,6 @@ export class Duration implements ValueObject {
 
     if (s >= 60) {
       const minutes = Math.floor(m);
-      const seconds = roundUp(minutes % 1, 2) * 60;
       return `${minutes} minutos`;
     }
 

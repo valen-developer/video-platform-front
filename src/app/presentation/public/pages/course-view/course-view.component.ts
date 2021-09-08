@@ -47,7 +47,6 @@ export class CourseViewComponent implements OnInit {
     this.videoGetter
       .getVideo(this.selectedVideo.uuid.value)
       .subscribe((data) => {
-        console.log(data);
         this.videoUrl = data;
       });
   }
