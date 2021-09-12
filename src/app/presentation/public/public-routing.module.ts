@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from 'src/app/application/Auth/login.guard';
+
 import { CourseViewComponent } from './pages/course-view/course-view.component';
 
 import { HomeComponent } from './pages/home/home.component';
@@ -9,6 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: PublicComponent,
+    canActivate: [LoginGuard],
     children: [
       { path: '', component: HomeComponent },
       { path: 'course', component: CourseViewComponent },

@@ -49,14 +49,6 @@ export class User {
   public inValidate(): void {
     this._validated = false;
   }
-
-  public turnAdminRole(): void {
-    this._role = new UserROLE('ADMIN_ROLE');
-  }
-
-  public turnUserRole(): void {
-    this._role = new UserROLE('USER_ROLE');
-  }
 }
 
 export interface UserObject {

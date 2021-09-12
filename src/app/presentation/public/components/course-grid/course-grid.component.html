@@ -5,7 +5,7 @@
     <app-course-card
       *ngFor="let course of courses"
       [course]="course"
-      [routerLink]="['/course']"
+      [routerLink]="['/public/course']"
       [queryParams]="{ uuid: course.uuid.value }"
     ></app-course-card>
   </div>
