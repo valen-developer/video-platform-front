@@ -1,18 +1,44 @@
+$border: none;
+
+.content > div {
+  border: $border;
+}
 .content {
   display: flex;
   width: 100%;
+  height: calc(100vh - 77px);
+  max-height: calc(100vh - 77px);
+  overflow-y: hidden;
+
+  background-color: var(--background);
 }
 
+.video {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.video > div {
+  border: $border;
+}
+.information {
+  height: 100%;
+}
+.player-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 0;
+}
 .player {
-  width: 70vw;
+  width: 90%;
 }
 .sections {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 30vw;
-  overflow-y: auto;
-  background-color: var(--background-contrast);
+  width: 30%;
+  overflow-y: scroll;
+  background-color: var(--background);
+  padding: 1rem;
   padding-bottom: 1rem;
+  height: 100%;
+  min-height: 100%;
 }

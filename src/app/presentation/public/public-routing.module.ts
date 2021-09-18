@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginGuard } from 'src/app/application/Auth/login.guard';
+import { LoginGuard } from 'src/app/application/guards/login.guard';
 
 import { CourseViewComponent } from './pages/course-view/course-view.component';
 

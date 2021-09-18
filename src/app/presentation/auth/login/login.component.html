@@ -1,17 +1,49 @@
 <div class="login-wrapper">
-  <h1>Login</h1>
+  <div class="welcome">
+    <h1>Login to your Account</h1>
+    <h5>Enjoy our courses and learn something new</h5>
+  </div>
 
   <form class="login-form" [formGroup]="form">
     <div class="login-form-item">
-      <label for="email">Email</label>
-      <input type="text" id="email" formControlName="email" />
+      <label>
+        <i class="fas fa-envelope email"></i>
+      </label>
+      <input
+        type="text"
+        placeholder="Enter your Email"
+        autocomplete="off"
+        id="email"
+        class="input"
+        formControlName="email"
+      />
     </div>
 
     <div class="login-form-item">
-      <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password" />
+      <label for="show-password" class="password">
+        <i class="fas fa-eye eye" *ngIf="showPassword"></i>
+        <i class="fas fa-eye-slash eye" *ngIf="!showPassword"></i>
+      </label>
+
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Enter your password"
+        autocomplete="off"
+        id="password"
+        class="input"
+        formControlName="password"
+      />
+      <input
+        type="checkbox"
+        class="hidden-input"
+        id="show-password"
+        formControlName="showPassword"
+        style="display: none"
+      />
     </div>
 
-    <button class="btn btn-primary" (click)="onSubmit()">Login</button>
+    <button class="btn btn-block btn-primary" (click)="onSubmit()">
+      Login
+    </button>
   </form>
 </div>

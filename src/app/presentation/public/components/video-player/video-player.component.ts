@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   AfterViewInit,
   Component,
   Input,
@@ -17,7 +18,9 @@ import { SafeUrl } from '@angular/platform-browser';
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.scss'],
 })
-export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit {
+export class VideoPlayerComponent
+  implements OnInit, OnChanges, AfterViewInit, AfterContentInit
+{
   @ViewChild('player') private player: Player;
 
   @Input()
@@ -33,10 +36,15 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {}
+  ngAfterContentInit(): void {}
 
   public onReady() {
     setTimeout(() => {
       this.player.play();
     }, 0);
+  }
+
+  toggleCinemaMode() {
+    console.log('cinema mode');
   }
 }

@@ -30,4 +30,17 @@ export class Duration implements ValueObject {
 
     return `${s} segundos`;
   }
+
+  public formathhmmss(): string {
+    const s = this.value;
+    const m = s / 60;
+
+    const secondsRest = m >= 1 ? roundUp((m % 1) * 60, 0) : Math.floor(s);
+    const minuteFloor = Math.floor(m);
+
+    const minutes = minuteFloor > 9 ? minuteFloor : '0' + minuteFloor;
+    const seconds = secondsRest > 9 ? secondsRest : '0' + secondsRest;
+
+    return minutes + ':' + seconds;
+  }
 }

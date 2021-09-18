@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/application/Auth/auth.service';
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  host: {},
 })
 export class LoginComponent implements OnInit {
   public form: FormGroup;
@@ -20,10 +21,15 @@ export class LoginComponent implements OnInit {
     this.buildForm();
   }
 
+  get showPassword(): boolean {
+    return this.form.value.showPassword;
+  }
+
   private buildForm(): void {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
+      showPassword: [false],
     });
   }
 

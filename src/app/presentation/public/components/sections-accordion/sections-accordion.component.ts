@@ -26,6 +26,7 @@ export class SectionsAccordionComponent implements OnInit, AfterViewInit {
 
   @Output() private selectedVideoEmitter = new EventEmitter<Video>();
 
+  @Input() public courseName: string;
   @Input() public sections: CourseSection[] = [];
   @Input() public videos: Video[] = [];
   @Input() public selectedVideo: Video;

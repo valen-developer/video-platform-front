@@ -1,29 +1,42 @@
 <div class="sections-accordion">
-  <div class="section" *ngFor="let section of sections; let i = index">
-    <button class="accordion-title" #accordion>
-      {{ i + 1 }}- {{ section.title.format() }}
-    </button>
-    <div class="panel">
-      <div
-        class="video"
-        *ngFor="let video of section.videos"
-        [ngClass]="{ active: isSelected(video?.uuid?.value) }"
-        (click)="onSelectVideo(video)"
-      >
-        {{ video.title.value }}
+  <div class="course-name">
+    <h3>{{ courseName }}</h3>
+  </div>
+
+  <div class="sections">
+    <div class="section" *ngFor="let section of sections; let i = index">
+      <button class="accordion-title" #accordion>
+        <span> {{ i + 1 }}- {{ section.title.format() }} </span>
+        <span class="title-time">{{ section.duration.formathhmmss() }}</span>
+      </button>
+      <div class="panel">
+        <div
+          class="video"
+          *ngFor="let video of section.videos"
+          [ngClass]="{ active: isSelected(video?.uuid?.value) }"
+          (click)="onSelectVideo(video)"
+        >
+          <span class="video-title">
+            {{ video.title.value }}
+          </span>
+          <span class="video-time">{{ video.duration.formathhmmss() }}</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="section">
-    <button class="accordion-title" #accordion>Videos</button>
-    <div class="panel">
-      <div
-        class="video"
-        *ngFor="let video of videos"
-        [ngClass]="{ active: isSelected(video?.uuid?.value) }"
-        (click)="onSelectVideo(video)"
-      >
-        {{ video.title.value }}
+    <div class="section" *ngIf="videos.length > 0">
+      <button class="accordion-title" #accordion>Videos</button>
+      <div class="panel">
+        <div
+          class="video"
+          *ngFor="let video of videos"
+          [ngClass]="{ active: isSelected(video?.uuid?.value) }"
+          (click)="onSelectVideo(video)"
+        >
+          <span class="video-title">
+            {{ video.title.value }}
+          </span>
+          <span class="video-time">{{ video.duration.formathhmmss() }}</span>
+        </div>
       </div>
     </div>
   </div>

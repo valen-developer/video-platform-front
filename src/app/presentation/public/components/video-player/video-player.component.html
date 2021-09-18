@@ -1,9 +1,51 @@
 <div class="player">
-  <vm-player #player (vmReady)="onReady()" [currentTime]="currentTime">
+  <vm-player
+    class="vm-player"
+    #player
+    icons="vime"
+    (vmReady)="onReady()"
+    [currentTime]="currentTime"
+  >
     <vm-video crossOrigin="true">
       <source [src]="videoUrl" type="video/mp4" />
     </vm-video>
 
-    <vm-default-ui></vm-default-ui>
+    <!-- <vm-default-ui></vm-default-ui> -->
+
+    <vm-ui>
+      <vm-default-settings></vm-default-settings>
+
+      <vm-controls>
+        <vm-control-group>
+          <vm-scrubber-control></vm-scrubber-control>
+        </vm-control-group>
+
+        <vm-control-group space="top">
+          <vm-playback-control></vm-playback-control>
+          <vm-control (click)="toggleCinemaMode()">
+            <i class="fas fa-step-forward"></i>
+          </vm-control>
+          <vm-volume-control></vm-volume-control>
+          <vm-time-progress></vm-time-progress>
+
+          <vm-control-spacer></vm-control-spacer>
+          <vm-pip-control></vm-pip-control>
+          <vm-control (click)="toggleCinemaMode()">
+            <i class="far fa-square"></i>
+          </vm-control>
+          <vm-fullscreen-control></vm-fullscreen-control>
+
+          <vm-caption-control></vm-caption-control>
+
+          <vm-settings-control></vm-settings-control>
+        </vm-control-group>
+        <vm-live-indicator></vm-live-indicator>
+      </vm-controls>
+      <vm-scrim gradient="up"></vm-scrim>
+      <vm-spinner
+        showWhenMediaLoading="true"
+        style="--vm-spinner-fill-color: red"
+      ></vm-spinner>
+    </vm-ui>
   </vm-player>
 </div>

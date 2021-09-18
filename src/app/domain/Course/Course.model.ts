@@ -24,6 +24,7 @@ export class Course {
     this._videos = course.videos ?? [];
     this._sections = course.sections ?? [];
     this.sortSections();
+    this.sortVideos();
   }
 
   get sections() {
@@ -86,7 +87,32 @@ export class Course {
           .replace(',', '')
       );
 
-      console.log(previus, actual);
+      return actual - previus;
+    });
+  }
+  public sortVideos(): void {
+    this._videos.sort((sc, sp) => {
+      const previus = Number(
+        sp.title.value
+          .replace('.', ' .-')
+          .replace('-', ' ')
+          .split(' ', 1)
+          .join()
+          .split('.')
+          .join()
+          .replace(',', '')
+      );
+
+      const actual = Number(
+        sc.title.value
+          .replace('.', ' .')
+          .replace('-', ' ')
+          .split(' ', 1)
+          .join()
+          .split('.')
+          .join()
+          .replace(',', '')
+      );
 
       return actual - previus;
     });

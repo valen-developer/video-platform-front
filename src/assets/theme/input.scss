@@ -1,0 +1,24 @@
+@import "./colors.scss";
+
+$primary-background: var(--secondary);
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 0 transparent inset;
+  -webkit-box-shadow: 0 0 0px 0 transparent inset;
+}
+
+.input {
+  background-color: var(--input-background);
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--text-primary);
+  padding: 1rem;
+  outline: none;
+  &:focus {
+    border: 2px solid var(--secondary);
+  }
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}

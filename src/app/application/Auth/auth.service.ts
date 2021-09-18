@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { AuthRepository } from 'src/app/domain/shared/interfaces/userRepository.interface';
@@ -16,7 +17,7 @@ export class AuthService {
   public user$: Observable<User>;
   public user: User | null = null;
 
-  constructor(private authRepository: AuthRepository) {
+  constructor(private authRepository: AuthRepository, private router: Router) {
     this.userSubject = new BehaviorSubject<User | null>(this.user);
     this.user$ = this.userSubject.asObservable();
 
@@ -47,6 +48,7 @@ export class AuthService {
   public logout(): void {
     this.setUser(null);
     this.setToken(null);
+    this.router.navigateByUrl('auth');
   }
 
   private setUser(user: User | null): void {

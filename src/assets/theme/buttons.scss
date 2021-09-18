@@ -1,0 +1,84 @@
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  padding: 1rem 1.5rem;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 900;
+  transition: 0.3s;
+  position: relative;
+  &:hover {
+    background-color: var(--primary);
+    color: var(--text-contrast-primary);
+  }
+  &:focus {
+    background-color: transparent !important;
+    border: 3px solid var(--secondary) !important;
+    color: var(--text-primary) !important;
+  }
+}
+
+.btn-block {
+  width: 100%;
+}
+.btn-primary {
+  background-color: var(--primary);
+  border: 2px solid transparent;
+  color: var(--text-contrast-primary);
+  transition: 0.3s;
+  &:hover {
+    border: 2px solid var(--primary);
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+}
+.btn-secondary {
+  background-color: var(--secondary);
+  border: 2px solid transparent;
+  color: var(--text-contrast-primary);
+  transition: 0.3s;
+  &:hover {
+    border: 2px solid var(--secondary);
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+}
+
+.btn-succes {
+  background-color: var(--succes);
+  border: 2px solid transparent;
+  color: var(--text-contrast-primary);
+  transition: 0.3s;
+  &:hover {
+    border: 2px solid var(--succes);
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+}
+
+.btn-warning {
+  background-color: var(--warning);
+  border: 2px solid transparent;
+  color: var(--text-contrast-primary);
+  transition: 0.3s;
+  &:hover {
+    border: 2px solid var(--warning);
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  border: 2px solid transparent;
+  color: var(--text-contrast-primary);
+  transition: 0.3s;
+  &:hover {
+    border: 2px solid var(--danger);
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+}

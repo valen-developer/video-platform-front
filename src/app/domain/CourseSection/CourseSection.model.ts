@@ -14,6 +14,8 @@ export class CourseSection {
     this.title = new CourseSectionTitle(section.title);
     this.videos = section.videos ?? [];
     this.duration = new Duration(section.duration ?? 0);
+
+    this.sortVideos();
   }
 
   public toObject(): CourseSectionObject {
@@ -23,6 +25,34 @@ export class CourseSection {
       duration: this.duration.value,
       videos: this.videos,
     };
+  }
+
+  public sortVideos(): void {
+    this.videos.sort((sc, sp) => {
+      const previus = Number(
+        sp.title.value
+          .replace('.', ' .-')
+          .replace('-', ' ')
+          .split(' ', 1)
+          .join()
+          .split('.')
+          .join()
+          .replace(',', '')
+      );
+
+      const actual = Number(
+        sc.title.value
+          .replace('.', ' .')
+          .replace('-', ' ')
+          .split(' ', 1)
+          .join()
+          .split('.')
+          .join()
+          .replace(',', '')
+      );
+
+      return actual - previus;
+    });
   }
 }
 

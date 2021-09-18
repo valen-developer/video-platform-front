@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <h5 class="app-name" routerLink="/">Video Platform.</h5>
+  <div class="items"></div>
+  <div class="profile" *ngIf="isLogin">
+    <div class="profile-options grow" *ngIf="isUserOptionOpen">
+      <div class="profile-options-content">
+        <li class="profile-option__item" routerLink="/auth">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="item-text">Logout</span>
+        </li>
+      </div>
+    </div>
+    <span class="profile__name" *ngIf="true" routerLink="/public">{{
+      user?.name?.value || "valentin" | uppercase
+    }}</span>
+    <div class="profile-user" (click)="isUserOptionOpen = !isUserOptionOpen">
+      <img
+        src="../../../../../assets/images/no-user.svg"
+        alt="user image"
+        class="profile__image"
+      />
+    </div>
+  </div>
+  <button
+    class="btn btn-primary signin"
+    *ngIf="!isLogin"
+    routerLink="/auth/login"
+  >
+    <i class="fas fa-sign-out-alt"></i>
+    <span class="item-text">Login</span>
+  </button>
+</nav>

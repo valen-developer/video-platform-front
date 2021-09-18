@@ -1,37 +1,23 @@
-$background-light: #f4f9ff;
-$background-dark: #051a35;
-
-$background-card-light: #ffffff;
-$background-card-dark: #02142b;
-
-$text-primary-light: #010914;
-$text-secondary-light: #282e35;
-
-$text-primary-dark: #f4f9ff;
-$text-secondary-dark: #565b61;
-
-$primary: #b4f092;
-$secondary: #f07a7d;
-$third: #c9aaf0;
-$secondary-complement: #f0ee86;
-$third-complement: #9ef0b4;
-
-$succes: #5cf067;
-$warning: #f0e13e;
-$danger: #f05249;
-
 :root {
   --background-light: #f4f9ff;
-  --background-dark: #051a35;
+  --background-dark: #161616;
 
   --background-card-light: #ffffff;
-  --background-card-dark: #02142b;
+  --background-card-dark: #222232;
+  --background-card-dark-contrast: #171717;
 
   --text-primary-light: #010914;
-  --text-secondary-light: #282e35;
+  --text-secondary-light: #717171;
 
-  --text-primary-dark: #f4f9ff;
-  --text-secondary-dark: #565b61;
+  --text-primary-dark: #f6f4f8;
+  --text-secondary-dark: #b2b2b2;
+
+  --shadow-dark: #312b3c;
+  --shadow-light: #2c3094;
+
+  --input-background-dark: #252525;
+  --hover-dark: #5b5b5b;
+  --hover-light: #d1d1d1;
 
   --primary-light: #3c55db;
   --secondary-light: #db9d51;
@@ -39,15 +25,15 @@ $danger: #f05249;
   --secondary-complement-light: #30a4db;
   --third-complement-light: #8046db;
 
-  --primary-dark: #72badb;
-  --secondary-dark: #dbbd5c;
+  --primary-dark: #29deba;
+  --secondary-dark: #1fb3f2;
   --third-dark: #db9d88;
   --secondary-complement-dark: #7d8cdb;
   --third-complement-dark: #67dbc1;
 
-  --succes: #5cf067;
-  --warning: #f0e13e;
-  --danger: #f05249;
+  --succes-not: #9edd6b;
+  --warning-not: #f2ce59;
+  --danger-not: #e05252;
 }
 
 .theme-light {
@@ -82,6 +68,7 @@ $danger: #f05249;
   --background-card: var(--background-card-dark);
   --background-navbar: var(--background-light);
   --background-contrast: var(--background-light);
+  --background-width-opacity: var(--background-card-dark-contrast);
 
   // Texts
   --text-primary: var(--text-primary-dark);
@@ -90,14 +77,24 @@ $danger: #f05249;
   --text-contrast-secondary: var(--text-secondary-light);
 
   //App colors
-  --primary: var(--primary);
-  --secondary: var(--secondary);
-  --third: var(--third);
-  --secondary-complement: var(--secondary-complement);
-  --third-complement: var(--third-complement);
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --third: var(--third-dark);
+  --secondary-complement: var(--secondary-complement-dark);
+  --third-complement: var(--third-complement-dark);
+
+  // Shadow
+  --shadow: var(--shadow-dark);
+
+  //Hover
+  --hover: var(--hover-dark);
+  --hover-contrast: var(--hover-light);
+
+  //Input
+  --input-background: var(--input-background-dark);
 
   //Notifications
-  --succes: var(--succes);
-  --warning: var(--warning);
-  --danger: var(--danger);
+  --succes: var(--succes-not);
+  --warning: var(--warning-not);
+  --danger: var(--danger-not);
 }

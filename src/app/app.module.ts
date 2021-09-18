@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,8 +14,9 @@ import { ApiVideoRepositoryService } from './infrastructure/repositories/api-vid
 import { AuthRepository } from './domain/shared/interfaces/userRepository.interface';
 import { ApiAuthRepositoryService } from './infrastructure/repositories/api-auth-repository.service';
 import { UUIDGenerator } from './infrastructure/uuidGenerator';
+import { TokenInterceptor } from './application/interceptors/token.interceptor';
 
-const providers = [
+const providers: Provider[] = [
   {
     provide: CourseRepository,
     useClass: ApiCourseRepositoryService,
@@ -31,6 +32,11 @@ const providers = [
   {
     provide: IUuidGenerator,
     useClass: UUIDGenerator,
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true,
   },
 ];
 

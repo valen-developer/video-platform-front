@@ -9,12 +9,16 @@
   max-width: 25rem;
   height: 100%;
 
-  box-shadow: 0 0 5px var(--background-dark);
+  background-color: var(--background-card);
+  box-shadow: 0 0 5px var(--shadow);
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: 0.3s;
   &:hover {
-    box-shadow: 0 0 10px var(--background-dark);
+    box-shadow: 0 0 1rem var(--primary);
+  }
+  &:focus {
+    border: 2px solid var(--secondary);
   }
 }
 
@@ -46,6 +50,7 @@
 }
 .card-content__duration span {
   padding: 0.1rem 0.5rem;
-  background-color: var(--secondary-complement);
+  background-color: var(--secondary);
   border-radius: var(--border-radius);
+  color: var(--text-contrast-primary);
 }

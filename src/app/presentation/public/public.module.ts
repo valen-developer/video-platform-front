@@ -15,6 +15,7 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
 import { VideoRepository } from 'src/app/domain/Video/interfaces/VideoRepository';
 import { ApiVideoRepositoryService } from 'src/app/infrastructure/repositories/api-video-repository.service';
 import { SectionsAccordionComponent } from './components/sections-accordion/sections-accordion.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SectionsAccordionComponent } from './components/sections-accordion/sect
     CourseViewComponent,
     VideoPlayerComponent,
     SectionsAccordionComponent,
+    NavbarComponent,
   ],
   imports: [CommonModule, PublicRoutingModule, VimeModule],
   providers: [],

@@ -1,0 +1,83 @@
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10rem;
+  gap: 0.5rem;
+}
+.welcome h1 {
+  font-size: 5rem;
+}
+.welcome h5 {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-form-item {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  position: relative;
+}
+.login-form-item {
+  & label {
+    position: absolute;
+    top: 1rem;
+    bottom: 0;
+    right: 1rem;
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+  }
+  & label i {
+    padding: 8px;
+  }
+  & label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    & i.eye {
+      color: var(--text-primary);
+      transition: 0.2s;
+      &:hover {
+        background-color: var(--hover-dark);
+        border-radius: var(--border-radius);
+      }
+    }
+  }
+}
+
+.password {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form-item input {
+  padding-right: 2.5rem;
+  font-size: 1.3rem;
+  height: 3rem;
+  width: 100%;
+}
+.login-form .btn {
+  margin-top: 2rem;
+  width: 60%;
+}
+.hidden-input {
+  opacity: 0;
+}
+.focus-active {
+  color: var(--text-primary);
+}
