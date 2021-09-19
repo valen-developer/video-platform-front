@@ -31,6 +31,7 @@ export class CourseViewComponent implements OnInit {
   private getCourse(uuid: string): void {
     this.courseGetter.getCourseByUuid(uuid).subscribe((course) => {
       this.course = course;
+
       this.selectedVideo = this.course?.sections[0]?.videos[0];
       this.selectedVideo = this.selectedVideo ?? this.course?.videos[0];
       this.getVideo();

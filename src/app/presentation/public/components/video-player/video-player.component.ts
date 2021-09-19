@@ -12,6 +12,7 @@ import {
 import { Player } from '@vime/angular';
 
 import { SafeUrl } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-video-player',
@@ -21,6 +22,8 @@ import { SafeUrl } from '@angular/platform-browser';
 export class VideoPlayerComponent
   implements OnInit, OnChanges, AfterViewInit, AfterContentInit
 {
+  private apiUrl = environment.apiUrl + '/course/poster';
+
   @ViewChild('player') private player: Player;
 
   @Input()
@@ -29,11 +32,19 @@ export class VideoPlayerComponent
   @Input()
   public currentTime = 0;
 
+  @Input() public imagePath: string;
+
+  public poster: string | undefined = undefined;
+
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.poster = this.imagePath
+      ? `${this.apiUrl}?image=${this.imagePath}`
+      : undefined;
+  }
 
   ngAfterViewInit(): void {}
   ngAfterContentInit(): void {}
@@ -42,6 +53,11 @@ export class VideoPlayerComponent
     setTimeout(() => {
       this.player.play();
     }, 0);
+  }
+
+  public next(data: any) {
+    console.log(data);
+    console.log('cambio');
   }
 
   toggleCinemaMode() {

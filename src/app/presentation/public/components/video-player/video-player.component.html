@@ -6,7 +6,7 @@
     (vmReady)="onReady()"
     [currentTime]="currentTime"
   >
-    <vm-video crossOrigin="true">
+    <vm-video crossOrigin="true" [poster]="poster">
       <source [src]="videoUrl" type="video/mp4" />
     </vm-video>
 
@@ -22,7 +22,7 @@
 
         <vm-control-group space="top">
           <vm-playback-control></vm-playback-control>
-          <vm-control (click)="toggleCinemaMode()">
+          <vm-control>
             <i class="fas fa-step-forward"></i>
           </vm-control>
           <vm-volume-control></vm-volume-control>
@@ -46,6 +46,8 @@
         showWhenMediaLoading="true"
         style="--vm-spinner-fill-color: red"
       ></vm-spinner>
+
+      <vm-poster></vm-poster>
     </vm-ui>
   </vm-player>
 </div>

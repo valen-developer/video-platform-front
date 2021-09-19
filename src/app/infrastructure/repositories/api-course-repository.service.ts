@@ -75,6 +75,7 @@ export class ApiCourseRepositoryService implements CourseRepository {
           description: course.description,
           title: course.title,
           duration: course.duration,
+          imagePath: course.imagePath,
           sections,
           videos,
         });

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Course } from 'src/app/domain/Course/Course.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-course-card',
@@ -17,6 +18,16 @@ export class CourseCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.setCourseInfo();
+  }
+
+  get image(): string {
+    const apiUrl = environment.apiUrl + '/course/poster';
+
+    const image = this.course.imagePath
+      ? `${apiUrl}?image=${this.course.imagePath}`
+      : this.imageUrl;
+
+    return image;
   }
 
   private setCourseInfo(): void {

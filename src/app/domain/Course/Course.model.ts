@@ -13,6 +13,7 @@ export class Course {
   public readonly title: CourseTitle;
   public readonly description: CourseDescription;
   public readonly duration: Duration;
+  public readonly imagePath: string;
   private _videos: Video[] = [];
   private _sections: CourseSection[] = [];
 
@@ -21,6 +22,8 @@ export class Course {
     this.title = new CourseTitle(course.title);
     this.description = new CourseDescription(course.description);
     this.duration = new Duration(course.duration ?? 0);
+    this.imagePath = course.imagePath;
+
     this._videos = course.videos ?? [];
     this._sections = course.sections ?? [];
     this.sortSections();
@@ -123,6 +126,7 @@ export interface CourseObject {
   uuid: string;
   title: string;
   description: string;
+  imagePath?: string;
   duration?: number;
   videos?: Video[];
   sections?: CourseSection[];
