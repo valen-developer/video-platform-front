@@ -17,6 +17,8 @@ import { ApiVideoRepositoryService } from 'src/app/infrastructure/repositories/a
 import { SectionsAccordionComponent } from './components/sections-accordion/sections-accordion.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+import { PlayingAnimationComponent } from './components/playing-animation/playing-animation.component';
+
 @NgModule({
   declarations: [
     PublicComponent,
@@ -27,6 +29,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     VideoPlayerComponent,
     SectionsAccordionComponent,
     NavbarComponent,
+    PlayingAnimationComponent,
   ],
   imports: [CommonModule, PublicRoutingModule, VimeModule],
   providers: [],

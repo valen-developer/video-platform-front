@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthRepository } from 'src/app/domain/shared/interfaces/userRepository.interface';
 import { User, UserObject } from 'src/app/domain/User/user.model';
@@ -47,6 +47,26 @@ export class ApiAuthRepositoryService implements AuthRepository {
       ),
       token,
     };
+  }
+
+  public async signinToken(token: string): Promise<User | null> {
+    const headers = new HttpHeaders().set('token', token);
+
+    const { user, ok } = await this.http
+      .post<{ user: UserObject; ok: boolean }>(`${this.apiUrl}/signin/token`, {
+        headers,
+      })
+      .toPromise();
+
+    if (!ok) return null;
+
+    return new User(
+      user.uuid,
+      user.name,
+      user.email,
+      user.role,
+      user.validated
+    );
   }
 }
 

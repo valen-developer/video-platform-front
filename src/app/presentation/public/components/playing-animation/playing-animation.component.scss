@@ -1,0 +1,33 @@
+.animation-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 8px;
+}
+
+.bar {
+  width: 4px;
+  height: 8px;
+  background-color: var(--background);
+}
+
+.move {
+  animation-name: move;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+@keyframes move {
+  from {
+    height: 0;
+  }
+  to {
+    height: 8px;
+  }
+}

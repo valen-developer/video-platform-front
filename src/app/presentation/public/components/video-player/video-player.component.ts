@@ -2,9 +2,11 @@ import {
   AfterContentInit,
   AfterViewInit,
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -34,6 +36,8 @@ export class VideoPlayerComponent
 
   @Input() public imagePath: string;
 
+  @Output() public nextVideoEmitter = new EventEmitter<void>();
+
   public poster: string | undefined = undefined;
 
   constructor() {}
@@ -50,14 +54,15 @@ export class VideoPlayerComponent
   ngAfterContentInit(): void {}
 
   public onReady() {
-    setTimeout(() => {
-      this.player.play();
-    }, 0);
+    // setTimeout(() => {
+    //   this.player.play();
+    // }, 0);
   }
 
-  public next(data: any) {
-    console.log(data);
-    console.log('cambio');
+  public next() {
+    console.log('End');
+
+    this.nextVideoEmitter.emit();
   }
 
   toggleCinemaMode() {

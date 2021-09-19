@@ -43,6 +43,23 @@ export class AuthService {
   }
 
   /**
+   * try login with token
+   * @returns if user is login or not
+   */
+  public async loginToken(): Promise<boolean> {
+    const token = this.getToken();
+
+    if (!token) return false;
+
+    const user = await this.authRepository.signinToken(token);
+    if (!user) return false;
+
+    this.setUser(user);
+
+    return true;
+  }
+
+  /**
    * Log out the user
    */
   public logout(): void {
@@ -52,6 +69,8 @@ export class AuthService {
   }
 
   private setUser(user: User | null): void {
+    console.log(user);
+
     this.isUserLogin = user ? true : false;
     this.user = user;
     this.userSubject.next(this.user);
@@ -61,5 +80,9 @@ export class AuthService {
   private setToken(token: string | null): void {
     if (!token) return localStorage.removeItem('token');
     localStorage.setItem('token', token);
+  }
+
+  private getToken(): string {
+    return localStorage.getItem('token');
   }
 }

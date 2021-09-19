@@ -4,7 +4,7 @@
   <div class="profile" *ngIf="isLogin">
     <div class="profile-options grow" *ngIf="isUserOptionOpen">
       <div class="profile-options-content">
-        <li class="profile-option__item" routerLink="/auth">
+        <li class="profile-option__item" (click)="logout()">
           <i class="fas fa-sign-out-alt"></i>
           <span class="item-text">Logout</span>
         </li>

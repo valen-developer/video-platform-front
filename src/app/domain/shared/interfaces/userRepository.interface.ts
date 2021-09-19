@@ -11,4 +11,6 @@ export abstract class AuthRepository {
     email: string,
     password: string
   ): Promise<{ user?: User; token?: string; error?: string }>;
+
+  abstract signinToken(token: string): Promise<User | null>;
 }

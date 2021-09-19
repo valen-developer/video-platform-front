@@ -6,20 +6,40 @@
   <div class="sections">
     <div class="section" *ngFor="let section of sections; let i = index">
       <button class="accordion-title" #accordion>
-        <span> {{ i + 1 }}- {{ section.title.format() }} </span>
-        <span class="title-time">{{ section.duration.formathhmmss() }}</span>
+        <div
+          class="accordion-title-text"
+          [ngClass]="{
+            active: section.uuid?.value === selectedSection.uuid?.value
+          }"
+        >
+          <span> {{ i + 1 }}- {{ section.title.format() }} </span>
+
+          <div class="video-time-container">
+            <app-playing-animation
+              *ngIf="section.uuid?.value === selectedSection.uuid?.value"
+            ></app-playing-animation>
+            <span class="title-time">{{
+              section.duration.formathhmmss()
+            }}</span>
+          </div>
+        </div>
       </button>
       <div class="panel">
         <div
           class="video"
           *ngFor="let video of section.videos"
           [ngClass]="{ active: isSelected(video?.uuid?.value) }"
-          (click)="onSelectVideo(video)"
+          (click)="onSelectVideo(video, section)"
         >
           <span class="video-title">
             {{ video.title.value }}
           </span>
-          <span class="video-time">{{ video.duration.formathhmmss() }}</span>
+          <div class="video-time-container">
+            <app-playing-animation
+              *ngIf="isSelected(video?.uuid?.value)"
+            ></app-playing-animation>
+            <span class="video-time">{{ video.duration.formathhmmss() }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -30,7 +50,7 @@
           class="video"
           *ngFor="let video of videos"
           [ngClass]="{ active: isSelected(video?.uuid?.value) }"
-          (click)="onSelectVideo(video)"
+          (click)="onSelectVideo(video, null)"
         >
           <span class="video-title">
             {{ video.title.value }}

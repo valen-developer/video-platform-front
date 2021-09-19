@@ -2,11 +2,14 @@
   <div class="video">
     <div class="player-container">
       <div class="player">
-        <app-video-player
-          [videoUrl]="videoUrl"
-          [imagePath]="course.imagePath"
-          *ngIf="videoUrl"
-        ></app-video-player>
+        <h1 *ngIf="!videoUrl">Loading</h1>
+        <div class="animate__animated animate__fadeInDownBig" *ngIf="videoUrl">
+          <app-video-player
+            [videoUrl]="videoUrl"
+            [imagePath]="course.imagePath"
+            (nextVideoEmitter)="nextVideo()"
+          ></app-video-player>
+        </div>
       </div>
     </div>
     <div class="information"></div>
@@ -18,6 +21,7 @@
       [videos]="course?.videos"
       [courseName]="course.title.value"
       [selectedVideo]="selectedVideo"
+      [selectedSection]="currentSection"
       (selectedVideoEmitter)="selectVideo($event)"
     ></app-sections-accordion>
   </div>

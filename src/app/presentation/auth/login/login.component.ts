@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/application/Auth/auth.service';
+import { LastUrlService } from 'src/app/application/shared/last-url.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -14,11 +15,19 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private lastUrlService: LastUrlService,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.tryLoginToken();
     this.buildForm();
+  }
+
+  private tryLoginToken(): void {
+    this.authService.loginToken().then((isLoging) => {
+      if (isLoging) this.router.navigateByUrl('public');
+    });
   }
 
   get showPassword(): boolean {

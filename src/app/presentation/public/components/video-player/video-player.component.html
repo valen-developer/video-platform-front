@@ -1,9 +1,11 @@
 <div class="player">
   <vm-player
-    class="vm-player"
     #player
+    class="vm-player"
     icons="vime"
+    autoplay
     (vmReady)="onReady()"
+    (vmPlaybackEnded)="next()"
     [currentTime]="currentTime"
   >
     <vm-video crossOrigin="true" [poster]="poster">
@@ -22,7 +24,7 @@
 
         <vm-control-group space="top">
           <vm-playback-control></vm-playback-control>
-          <vm-control>
+          <vm-control (click)="next()">
             <i class="fas fa-step-forward"></i>
           </vm-control>
           <vm-volume-control></vm-volume-control>

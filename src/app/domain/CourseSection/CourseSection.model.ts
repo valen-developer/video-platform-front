@@ -31,6 +31,7 @@ export class CourseSection {
     this.videos.sort((sc, sp) => {
       const previus = Number(
         sp.title.value
+          .replace('_', ' ')
           .replace('.', ' .-')
           .replace('-', ' ')
           .split(' ', 1)
@@ -42,6 +43,7 @@ export class CourseSection {
 
       const actual = Number(
         sc.title.value
+          .replace('_', ' ')
           .replace('.', ' .')
           .replace('-', ' ')
           .split(' ', 1)
