@@ -16,6 +16,9 @@ import { ApiAuthRepositoryService } from './infrastructure/repositories/api-auth
 import { UUIDGenerator } from './infrastructure/uuidGenerator';
 import { TokenInterceptor } from './application/interceptors/token.interceptor';
 
+// Modules
+import { SharedModule } from './presentation/shared/shared.module';
+
 const providers: Provider[] = [
   {
     provide: CourseRepository,
@@ -48,7 +51,9 @@ const providers: Provider[] = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
   ],
+  exports: [SharedModule],
   providers: providers,
   bootstrap: [AppComponent],
 })

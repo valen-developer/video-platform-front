@@ -2,7 +2,10 @@
   <div class="video">
     <div class="player-container">
       <div class="player">
-        <h1 *ngIf="!videoUrl">Loading</h1>
+        <div class="loading-container" *ngIf="!videoUrl">
+          <app-general-loading></app-general-loading>
+          <h2>Loading</h2>
+        </div>
         <div class="animate__animated animate__fadeInDownBig" *ngIf="videoUrl">
           <app-video-player
             [videoUrl]="videoUrl"

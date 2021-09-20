@@ -1,16 +1,27 @@
 <div class="table grid">
   <!-- Headers -->
-  <div class="headers grid">
-    <div class="headers-image">image</div>
-    <div class="headers-title">title</div>
-    <div class="headers-duration">duration</div>
-    <div class="headers-session">session</div>
+  <div class="headers grid row">
+    <div class="headers-image">Image</div>
+    <div class="headers-title">Title</div>
+    <div class="headers-duration">Duration</div>
   </div>
 
-  <div class="content grid">
-    <div class="headers-image">image</div>
-    <div class="headers-title">title</div>
-    <div class="headers-duration">duration</div>
-    <div class="headers-session">session</div>
+  <div class="content-row grid row" *ngFor="let course of courses">
+    <div class="content-image">
+      <img
+        *ngIf="!course.imageDataUrl"
+        src="../../../../../../../assets/images/no-image.jpg"
+        alt="no image"
+      />
+      <img
+        *ngIf="course.imageDataUrl"
+        [src]="course.imageDataUrl"
+        alt="course image"
+      />
+    </div>
+    <div class="content-title">{{ course?.course?.title?.value }}</div>
+    <div class="content-duration">
+      {{ course?.course?.duration?.formatToString() }}
+    </div>
   </div>
 </div>

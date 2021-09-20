@@ -40,6 +40,9 @@
   &.active {
     color: var(--text-contrast-primary);
     background-color: var(--secondary);
+    & a {
+      color: var(--text-contrast-primary);
+    }
   }
 }
 

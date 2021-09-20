@@ -1,11 +1,34 @@
+.table {
+  gap: 10px;
+}
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 0.25fr repeat(2, 1fr);
+  gap: 1rem;
   width: 100%;
 }
-.headers {
+
+.row {
   grid-column: 1 / 5;
+  padding: 0.5rem;
 }
-.content {
-  grid-column: 1 / 5;
+.headers {
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--shadow);
+}
+
+.content-row {
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--hover);
+  }
+}
+
+.content-image img {
+  border-radius: var(--border-radius);
+  min-width: 50px;
+  overflow: hidden;
+  width: 50%;
 }

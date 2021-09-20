@@ -1,1 +1,6 @@
-<app-courses-table></app-courses-table>
+<div class="course-board-wrapper">
+  <div class="course-count">
+    <h2>{{ courses.length }} Courses</h2>
+  </div>
+  <app-courses-table [courses]="courses"></app-courses-table>
+</div>

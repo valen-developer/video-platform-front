@@ -2,7 +2,16 @@
   <h5 class="app-name" routerLink="/">Video Platform.</h5>
 
   <div class="items">
-    <div class="items-item" routerLink="/admin/dashboard">
+    <div class="items-item" routerLink="/public" routerLinkActive="active">
+      <i class="fas fa-home"></i>
+      <a>Home</a>
+    </div>
+
+    <div
+      class="items-item"
+      routerLink="/admin/dashboard"
+      routerLinkActive="active"
+    >
       <i class="fas fa-users-cog"></i>
       <a *ngIf="isAdmin()">Dashboard</a>
     </div>

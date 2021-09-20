@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,6 +10,7 @@ import {
   CourseSectionObject,
 } from 'src/app/domain/CourseSection/CourseSection.model';
 import { Video, VideoObject } from 'src/app/domain/Video/video.model';
+import { blobToUrl } from 'src/app/helpers/blobToDataurl';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -81,5 +82,12 @@ export class ApiCourseRepositoryService implements CourseRepository {
         });
       })
     );
+  }
+
+  public getCourseImage(imagePath: string): Promise<ArrayBuffer> {
+    const params = new HttpParams().set('image', imagePath);
+    return this.http
+      .get(`${this.apiUrl}/poster`, { params, responseType: 'arraybuffer' })
+      .toPromise();
   }
 }
