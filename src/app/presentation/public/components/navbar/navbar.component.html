@@ -1,6 +1,13 @@
 <nav class="navbar">
   <h5 class="app-name" routerLink="/">Video Platform.</h5>
-  <div class="items"></div>
+
+  <div class="items">
+    <div class="items-item" routerLink="/admin/dashboard">
+      <i class="fas fa-users-cog"></i>
+      <a *ngIf="isAdmin()">Dashboard</a>
+    </div>
+  </div>
+
   <div class="profile" *ngIf="isLogin">
     <div class="profile-options grow" *ngIf="isUserOptionOpen">
       <div class="profile-options-content">

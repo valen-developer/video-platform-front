@@ -1,0 +1,11 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+.headers {
+  grid-column: 1 / 5;
+}
+.content {
+  grid-column: 1 / 5;
+}

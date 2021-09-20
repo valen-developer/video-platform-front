@@ -11,6 +11,38 @@
   font-size: 1.2rem;
 }
 
+.items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.items-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text-secondary);
+  &:hover {
+    background-color: var(--hover);
+  }
+
+  & img {
+    color: red;
+    width: 20px;
+  }
+  & a {
+    text-decoration: none;
+    color: var(--text-secondary);
+  }
+  &.active {
+    color: var(--text-contrast-primary);
+    background-color: var(--secondary);
+  }
+}
+
 .profile {
   display: flex;
   align-items: center;

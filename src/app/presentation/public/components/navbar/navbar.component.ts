@@ -29,6 +29,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService, private renderer: Renderer2) {}
 
+  public isAdmin(): boolean {
+    return this.user.role.isAdminRole();
+  }
+
   ngOnInit(): void {
     this.isLoginSubscription = this.authService.isLogin$.subscribe(
       (isLogin) => {

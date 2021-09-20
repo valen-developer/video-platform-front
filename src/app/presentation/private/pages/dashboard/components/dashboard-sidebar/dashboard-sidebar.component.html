@@ -1,0 +1,38 @@
+<div class="sidebar">
+  <div class="user">
+    <img src="../../../../../../../assets/images/no-user.svg" alt="user" />
+    <span>Welcome {{ user.name.value }}</span>
+  </div>
+
+  <nav class="links">
+    <div
+      class="nav-link"
+      [routerLink]="baseUrl + '/users'"
+      routerLinkActive="active"
+    >
+      <i class="fas fa-users"></i>
+      <span>Users</span>
+    </div>
+
+    <div
+      class="nav-link"
+      [routerLink]="baseUrl + '/courses'"
+      routerLinkActive="active"
+    >
+      <i class="fas fa-graduation-cap"></i>
+      <span>Courses</span>
+    </div>
+  </nav>
+
+  <div class="footer">
+    <button class="btn btn-block btn-secondary" routerLink="/public">
+      <span>Go Public</span>
+      <i class="fas fa-user-friends"></i>
+    </button>
+
+    <button class="btn btn-block btn-danger" (click)="logout()">
+      <span>Logout</span>
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+</div>
