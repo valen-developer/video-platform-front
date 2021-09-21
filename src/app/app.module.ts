@@ -53,7 +53,7 @@ const providers: Provider[] = [
     FormsModule,
     SharedModule,
   ],
-  exports: [SharedModule],
+  exports: [],
   providers: providers,
   bootstrap: [AppComponent],
 })

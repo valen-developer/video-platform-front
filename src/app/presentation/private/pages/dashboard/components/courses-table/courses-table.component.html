@@ -6,7 +6,11 @@
     <div class="headers-duration">Duration</div>
   </div>
 
-  <div class="content-row grid row" *ngFor="let course of courses">
+  <div
+    class="content-row grid row"
+    *ngFor="let course of courses"
+    [routerLink]="['/admin/dashboard/course', '123']"
+  >
     <div class="content-image">
       <img
         *ngIf="!course.imageDataUrl"
