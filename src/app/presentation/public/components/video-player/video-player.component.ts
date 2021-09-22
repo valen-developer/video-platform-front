@@ -15,6 +15,7 @@ import { Player } from '@vime/angular';
 
 import { SafeUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { CinemaModeService } from 'src/app/application/shared/cinema-mode.service';
 
 @Component({
   selector: 'app-video-player',
@@ -40,7 +41,7 @@ export class VideoPlayerComponent
 
   public poster: string | undefined = undefined;
 
-  constructor() {}
+  constructor(private cinemaModeService: CinemaModeService) {}
 
   ngOnChanges(changes: SimpleChanges): void {}
 
@@ -66,6 +67,14 @@ export class VideoPlayerComponent
   }
 
   toggleCinemaMode() {
-    console.log('cinema mode');
+    this.cinemaModeService.isCinemaMode$.subscribe((isCinemamode) => {
+      if (isCinemamode) {
+        this.player.aspectRatio = '2:1';
+      }
+
+      if (!isCinemamode) this.player.aspectRatio = '16:9';
+    });
+
+    this.cinemaModeService.toggleCinemaMode();
   }
 }

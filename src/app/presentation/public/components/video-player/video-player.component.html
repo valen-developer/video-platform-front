@@ -3,7 +3,7 @@
     #player
     class="vm-player"
     icons="vime"
-    autoplay
+    aspectRatio="1:1"
     (vmReady)="onReady()"
     (vmPlaybackEnded)="next()"
     [currentTime]="currentTime"
@@ -24,8 +24,9 @@
 
         <vm-control-group space="top">
           <vm-playback-control></vm-playback-control>
-          <vm-control (click)="next()">
+          <vm-control label="next video" (click)="next()">
             <i class="fas fa-step-forward"></i>
+            <vm-tooltip>Next video</vm-tooltip>
           </vm-control>
           <vm-volume-control></vm-volume-control>
           <vm-time-progress></vm-time-progress>
@@ -34,6 +35,7 @@
           <vm-pip-control></vm-pip-control>
           <vm-control (click)="toggleCinemaMode()">
             <i class="far fa-square"></i>
+            <vm-tooltip>Cinema mode</vm-tooltip>
           </vm-control>
           <vm-fullscreen-control></vm-fullscreen-control>
 

@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
+
+import { Subscription } from 'rxjs';
+
 import { CoursesGetterService } from 'src/app/application/Courses/courses-getter.service';
+import { CinemaModeService } from 'src/app/application/shared/cinema-mode.service';
 import { VideoGetterService } from 'src/app/application/Video/video-getter.service';
 import { Course } from 'src/app/domain/Course/Course.model';
 import { CourseSection } from 'src/app/domain/CourseSection/CourseSection.model';
@@ -11,14 +16,19 @@ import { Video } from 'src/app/domain/Video/video.model';
   templateUrl: './course-view.component.html',
   styleUrls: ['./course-view.component.scss'],
 })
-export class CourseViewComponent implements OnInit {
+export class CourseViewComponent implements OnInit, AfterViewInit, OnDestroy {
   public course: Course;
   public selectedVideo: Video;
   public currentSection: CourseSection;
   public videoUrl: SafeUrl;
 
+  public isCinemaMode = false;
+  public isCinemaModeSubscription: Subscription;
+
   constructor(
     private route: ActivatedRoute,
+    private changeDetectorRef: ChangeDetectorRef,
+    private cinemaModeService: CinemaModeService,
     private courseGetter: CoursesGetterService,
     private videoGetter: VideoGetterService
   ) {}
@@ -28,6 +38,18 @@ export class CourseViewComponent implements OnInit {
       const { uuid } = params;
       if (uuid) this.getCourse(uuid);
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.isCinemaModeSubscription =
+      this.cinemaModeService.isCinemaMode$.subscribe((isCinemaMode) => {
+        this.isCinemaMode = isCinemaMode;
+        this.changeDetectorRef.detectChanges();
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.isCinemaModeSubscription.unsubscribe();
   }
 
   private getCourse(uuid: string): void {
