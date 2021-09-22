@@ -5,4 +5,5 @@ export abstract class CourseRepository {
   abstract getAll(): Observable<Course[]>;
   abstract getCourse(uuid: string): Observable<Course>;
   abstract getCourseImage(uuid: string): Promise<ArrayBuffer>;
+  abstract setCourseImage(uuid: string, file: File | Blob): Promise<boolean>;
 }

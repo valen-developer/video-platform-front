@@ -1,1 +1,27 @@
-<div class="course-image-wrapper" dropZone dropzone="course-image"></div>
+<div class="course-image-wrapper" *ngIf="course">
+  <label for="imageControl">
+    <div
+      for="imageControl"
+      class="course-image"
+      dropZone
+      (fileEmitter)="onEnterFile($event)"
+    >
+      <img *ngIf="image" [src]="image" alt="course image" />
+      <img
+        *ngIf="!image"
+        src="../../../../../../../assets/images/no-image.jpg"
+        alt="course image"
+      />
+    </div>
+  </label>
+  <input type="file" hidden id="imageControl" (input)="onInput($event)" />
+
+  <div class="course-information">
+    <div class="course-title">
+      <h5>{{ course.title.value }}</h5>
+    </div>
+    <div class="course-duration">
+      <h6>{{ course.duration.formatToString() }}</h6>
+    </div>
+  </div>
+</div>

@@ -9,7 +9,7 @@
   <div
     class="content-row grid row"
     *ngFor="let course of courses"
-    [routerLink]="['/admin/dashboard/course', '123']"
+    [routerLink]="['/admin/dashboard/course', course?.course?.uuid?.value]"
   >
     <div class="content-image">
       <img

@@ -37,11 +37,9 @@ export class CoursesBoardComponent implements OnInit {
       course.imagePath
     );
 
-    const dataUrl = this.domSanitizer.bypassSecurityTrustUrl(imagePath);
-
     return {
       course,
-      imageDataUrl: dataUrl,
+      imageDataUrl: imagePath,
     };
   }
 }

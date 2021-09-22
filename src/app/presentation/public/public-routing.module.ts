@@ -13,9 +13,9 @@ const routes: Routes = [
     component: PublicComponent,
     canActivate: [LoginGuard],
     children: [
-      { path: '', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
       { path: 'course', component: CourseViewComponent },
-      { path: '**', pathMatch: 'full', redirectTo: '' },
+      { path: '**', pathMatch: 'full', redirectTo: 'home' },
     ],
   },
 ];

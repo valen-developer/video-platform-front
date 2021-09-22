@@ -1,8 +1,10 @@
 import {
   Directive,
   ElementRef,
+  EventEmitter,
   HostListener,
   OnDestroy,
+  Output,
   Renderer2,
 } from '@angular/core';
 import { fileExtension } from 'src/app/helpers/fileExtension';
@@ -12,6 +14,8 @@ import { fileExtension } from 'src/app/helpers/fileExtension';
 })
 export class DropZoneDirective implements OnDestroy {
   private file: File;
+
+  @Output() private fileEmitter = new EventEmitter<File>();
 
   constructor(private renderer2: Renderer2, private el: ElementRef) {
     console.log('Entras');
@@ -37,6 +41,7 @@ export class DropZoneDirective implements OnDestroy {
 
     this.changeColor('succes');
     this.file = event.dataTransfer.files[0];
+    this.fileEmitter.emit(this.file);
   }
 
   private _preventDefault(event: DragEvent): void {

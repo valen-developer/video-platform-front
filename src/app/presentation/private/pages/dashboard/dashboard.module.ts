@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // Modules
 import { SharedModule } from '../../../shared/shared.module';
@@ -23,6 +24,12 @@ import { CourseEditorImageComponent } from './components/course-editor-image/cou
     CourseEditorComponent,
     CourseEditorImageComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule,
+  ],
 })
 export class DashboardModule {}

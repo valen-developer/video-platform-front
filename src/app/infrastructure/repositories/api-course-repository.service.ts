@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, pluck } from 'rxjs/operators';
 
 import { Course, CourseObject } from 'src/app/domain/Course/Course.model';
 import { CourseRepository } from 'src/app/domain/Course/interfaces/CourseRepository';
@@ -10,7 +10,7 @@ import {
   CourseSectionObject,
 } from 'src/app/domain/CourseSection/CourseSection.model';
 import { Video, VideoObject } from 'src/app/domain/Video/video.model';
-import { blobToUrl } from 'src/app/helpers/blobToDataurl';
+
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -89,5 +89,20 @@ export class ApiCourseRepositoryService implements CourseRepository {
     return this.http
       .get(`${this.apiUrl}/poster`, { params, responseType: 'arraybuffer' })
       .toPromise();
+  }
+
+  public async setCourseImage(
+    uuid: string,
+    file: File | Blob
+  ): Promise<boolean> {
+    const form = new FormData();
+
+    form.set('courseUuid', uuid);
+    form.set('file', file);
+
+    return this.http
+      .put<boolean>(`${this.apiUrl}/image`, form)
+      .pipe<boolean>(pluck('ok'))
+      .toPromise<boolean>();
   }
 }

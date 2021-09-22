@@ -2,30 +2,36 @@
   <h5 class="app-name" routerLink="/">Video Platform.</h5>
 
   <div class="items">
-    <div class="items-item" routerLink="/public" routerLinkActive="active">
+    <div class="items-item" routerLink="/public/home" routerLinkActive="active">
       <i class="fas fa-home"></i>
       <a>Home</a>
     </div>
 
     <div
+      *ngIf="isAdmin()"
       class="items-item"
       routerLink="/admin/dashboard"
       routerLinkActive="active"
     >
       <i class="fas fa-users-cog"></i>
-      <a *ngIf="isAdmin()">Dashboard</a>
+      <a>Dashboard</a>
     </div>
   </div>
 
+  <!-- Profile section -->
   <div class="profile" *ngIf="isLogin">
+    <!-- Profile card -->
     <div class="profile-options grow" *ngIf="isUserOptionOpen">
       <div class="profile-options-content">
+        <ul class="options"></ul>
+
         <li class="profile-option__item" (click)="logout()">
           <i class="fas fa-sign-out-alt"></i>
           <span class="item-text">Logout</span>
         </li>
       </div>
     </div>
+
     <span class="profile__name" *ngIf="true" routerLink="/public">{{
       user?.name?.value || "valentin" | uppercase
     }}</span>

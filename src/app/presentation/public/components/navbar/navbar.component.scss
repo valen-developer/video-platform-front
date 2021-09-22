@@ -69,6 +69,10 @@
   color: var(--text-contrast-primary);
   padding: 0.4rem;
 }
+.options {
+  flex-grow: 1;
+}
+
 .profile-option__item {
   cursor: pointer;
   display: flex;
