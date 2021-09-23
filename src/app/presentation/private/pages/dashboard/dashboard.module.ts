@@ -13,6 +13,7 @@ import { DashboardSidebarComponent } from './components/dashboard-sidebar/dashbo
 import { CoursesTableComponent } from './components/courses-table/courses-table.component';
 import { CourseEditorComponent } from './pages/course-editor/course-editor.component';
 import { CourseEditorImageComponent } from './components/course-editor-image/course-editor-image.component';
+import { UsersTableComponent } from './components/users-table/users-table.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CourseEditorImageComponent } from './components/course-editor-image/cou
     CoursesTableComponent,
     CourseEditorComponent,
     CourseEditorImageComponent,
+    UsersTableComponent,
   ],
   imports: [
     CommonModule,

@@ -18,6 +18,8 @@ import { TokenInterceptor } from './application/interceptors/token.interceptor';
 
 // Modules
 import { SharedModule } from './presentation/shared/shared.module';
+import { UserRepository } from './domain/User/interfaces/UserRepository.interface';
+import { ApiUserRepositoryService } from './infrastructure/repositories/api-user-repository.service';
 
 const providers: Provider[] = [
   {
@@ -35,6 +37,10 @@ const providers: Provider[] = [
   {
     provide: IUuidGenerator,
     useClass: UUIDGenerator,
+  },
+  {
+    provide: UserRepository,
+    useClass: ApiUserRepositoryService,
   },
   {
     provide: HTTP_INTERCEPTORS,
