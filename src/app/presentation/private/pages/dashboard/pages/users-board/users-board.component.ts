@@ -18,8 +18,6 @@ export class UsersBoardComponent implements OnInit {
   private async getAllUsers(): Promise<void> {
     this.userGetter.getAll().then((users) => {
       this.users = users;
-
-      console.log(this.users);
     });
   }
 }

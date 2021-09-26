@@ -9,17 +9,19 @@
     <div class="headers-duration">Uuid</div>
   </div>
 
-  <div class="content-row grid row">
+  <div class="content-row grid row" *ngFor="let user of users; index as i">
     <div class="content-image">
       <img
         src="../../../../../../../assets/images/no-user.svg"
         alt="no image"
       />
     </div>
-    <div class="content-title">name</div>
-    <div class="content-duration">email</div>
-    <div class="content-title">Role</div>
-    <div class="content-title">Validated</div>
-    <div class="content-title">Uuid</div>
+    <div class="content-title">{{ user.name.value }}</div>
+    <div class="content-duration">{{ user.email.value }}</div>
+    <div class="content-role">{{ user.role.value }}</div>
+    <div class="content-validated">
+      <input type="checkbox" [formControl]="formValidatedControl(i)" />
+    </div>
+    <div class="content-uuid">{{ user.uuid.value }}</div>
   </div>
 </div>
