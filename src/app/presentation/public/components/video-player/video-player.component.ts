@@ -5,6 +5,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   Output,
   SimpleChanges,
@@ -16,15 +17,15 @@ import { Player } from '@vime/angular';
 import { SafeUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { CinemaModeService } from 'src/app/application/shared/cinema-mode.service';
+import { CoursesGetterService } from 'src/app/application/Courses/courses-getter.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.scss'],
 })
-export class VideoPlayerComponent
-  implements OnInit, OnChanges, AfterViewInit, AfterContentInit
-{
+export class VideoPlayerComponent implements OnInit, OnDestroy {
   private apiUrl = environment.apiUrl + '/course/poster';
 
   @ViewChild('player') private player: Player;
@@ -36,45 +37,51 @@ export class VideoPlayerComponent
   public currentTime = 0;
 
   @Input() public imagePath: string;
-
   @Output() public nextVideoEmitter = new EventEmitter<void>();
 
-  public poster: string | undefined = undefined;
+  public poster: string | SafeUrl;
+  private cinemaModeSubscription: Subscription;
 
-  constructor(private cinemaModeService: CinemaModeService) {}
-
-  ngOnChanges(changes: SimpleChanges): void {}
+  constructor(
+    private cinemaModeService: CinemaModeService,
+    private courseGetter: CoursesGetterService
+  ) {}
 
   ngOnInit(): void {
-    this.poster = this.imagePath
-      ? `${this.apiUrl}?image=${this.imagePath}`
-      : undefined;
+    this.getCourseImage();
+  }
+  ngOnDestroy(): void {
+    this.cinemaModeSubscription.unsubscribe();
   }
 
-  ngAfterViewInit(): void {}
-  ngAfterContentInit(): void {}
-
   public onReady() {
-    // setTimeout(() => {
-    //   this.player.play();
-    // }, 0);
+    this.cinemaModeSubscribe();
   }
 
   public next() {
-    console.log('End');
-
     this.nextVideoEmitter.emit();
   }
 
-  toggleCinemaMode() {
-    this.cinemaModeService.isCinemaMode$.subscribe((isCinemamode) => {
-      if (isCinemamode) {
-        this.player.aspectRatio = '2:1';
-      }
-
-      if (!isCinemamode) this.player.aspectRatio = '16:9';
-    });
-
+  public toggleCinemaMode() {
     this.cinemaModeService.toggleCinemaMode();
+  }
+
+  private getCourseImage(): void {
+    if (!this.imagePath) return;
+
+    this.courseGetter.getCourseImageAsDataUrl(this.imagePath).then((img) => {
+      this.poster = img;
+    });
+  }
+
+  private cinemaModeSubscribe(): void {
+    this.cinemaModeSubscription =
+      this.cinemaModeService.isCinemaMode$.subscribe((isCinemaMode) => {
+        if (isCinemaMode) {
+          this.player.aspectRatio = '2:1';
+        }
+
+        if (!isCinemaMode) this.player.aspectRatio = '16:9';
+      });
   }
 }
