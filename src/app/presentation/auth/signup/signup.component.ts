@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignUpService } from 'src/app/application/Auth/sign-up.service';
+import { AlertService } from '../../shared/modules/alert/alert.service';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -12,7 +13,11 @@ export class SignupComponent implements OnInit {
 
   public signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private signupService: SignUpService) {}
+  constructor(
+    private fb: FormBuilder,
+    private signupService: SignUpService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -31,6 +36,8 @@ export class SignupComponent implements OnInit {
   }
 
   public onSubmit() {
+    this.alertService.succes('Todo correcto');
+
     const isFormValid = this.signupForm.valid;
     if (!isFormValid) return;
 

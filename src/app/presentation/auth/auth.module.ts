@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { AlertModule } from '../shared/modules/alert/alert.module';
 
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
@@ -23,6 +24,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
+    AlertModule,
   ],
 })
 export class AuthModule {}
