@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/application/Auth/auth.service';
 import { LastUrlService } from 'src/app/application/shared/last-url.service';
+import { AlertService } from '../../shared/modules/alert/alert.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private lastUrlService: LastUrlService,
+    private alert: AlertService,
     private authService: AuthService
   ) {}
 
@@ -43,10 +44,17 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    if (this.form.invalid) return this.alert.warning('invalid form');
+
     const { email, password } = this.form.value;
 
-    this.authService.login(email, password).then((response) => {
-      if (response) this.router.navigateByUrl('');
-    });
+    this.authService
+      .login(email, password)
+      .then((response) => {
+        if (response) this.router.navigateByUrl('');
+      })
+      .catch(({ error }) => {
+        this.alert.danger(error?.error ?? 'Server error');
+      });
   }
 }

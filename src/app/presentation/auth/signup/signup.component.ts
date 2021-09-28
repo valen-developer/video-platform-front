@@ -36,10 +36,8 @@ export class SignupComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.alertService.succes('Todo correcto');
-
     const isFormValid = this.signupForm.valid;
-    if (!isFormValid) return;
+    if (!isFormValid) return this.alertService.warning('Invalid form');
 
     const { email, name, password } = this.signupForm.value;
 
@@ -47,14 +45,13 @@ export class SignupComponent implements OnInit {
     this.signupService
       .createUser(email, name, password)
       .then(({ ok }) => {
-        if (ok) console.log('Todo correcto');
+        this.alertService.succes('succes! Admin must validate you');
         this.signupForm.reset();
         this.isLoading = false;
       })
       .catch((err) => {
-        this.signupForm.reset();
-
         this.isLoading = false;
+        this.alertService.danger(err.error.error);
       });
   }
 }
