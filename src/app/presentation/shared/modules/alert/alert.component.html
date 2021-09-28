@@ -1,6 +1,6 @@
 <div class="alert-container">
   <div
-    *ngFor="let alert of alerts"
+    *ngFor="let alert of alerts.reverse()"
     class="alert-card {{ alert.type }} "
     [ngClass]="{ fadeOut: alert.fadeOut ? true : false }"
   >
