@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-general-loading',
   templateUrl: './general-loading.component.html',
-  styleUrls: ['./general-loading.component.scss']
+  styleUrls: ['./general-loading.component.scss'],
 })
 export class GeneralLoadingComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

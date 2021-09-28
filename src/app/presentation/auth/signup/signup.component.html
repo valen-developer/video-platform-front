@@ -1,1 +1,65 @@
-<p>signup works!</p>
+<div class="login-wrapper">
+  <div class="welcome">
+    <h1>Create an Account</h1>
+    <h5>Enjoy our courses and learn something new</h5>
+  </div>
+
+  <form class="login-form" [formGroup]="signupForm">
+    <div class="login-form-item">
+      <label>
+        <i class="fas fa-envelope email"></i>
+      </label>
+      <input
+        type="text"
+        placeholder="Enter your Name"
+        autocomplete="off"
+        id="email"
+        class="input"
+        formControlName="name"
+      />
+    </div>
+
+    <div class="login-form-item">
+      <label>
+        <i class="fas fa-envelope email"></i>
+      </label>
+      <input
+        type="text"
+        placeholder="Enter your Email"
+        autocomplete="off"
+        id="email"
+        class="input"
+        formControlName="email"
+      />
+    </div>
+
+    <div class="login-form-item">
+      <label
+        for="show-password"
+        class="password"
+        (click)="toggleShowPassword()"
+      >
+        <i class="fas fa-eye eye" *ngIf="showPassword"></i>
+        <i class="fas fa-eye-slash eye" *ngIf="!showPassword"></i>
+      </label>
+
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Enter your password"
+        autocomplete="off"
+        id="password"
+        class="input"
+        formControlName="password"
+      />
+    </div>
+
+    <button class="btn btn-block btn-primary" (click)="onSubmit()">
+      <span *ngIf="!isLoading">Signup</span>
+      <app-general-loading *ngIf="isLoading"></app-general-loading>
+    </button>
+  </form>
+
+  <div class="message">
+    <a routerLink="/auth/login">Already have an account</a>
+  </div>
+</div>

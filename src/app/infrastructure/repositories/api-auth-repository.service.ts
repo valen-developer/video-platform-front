@@ -15,13 +15,14 @@ export class ApiAuthRepositoryService implements AuthRepository {
   public async signup(
     email: string,
     name: string,
+    password: string,
     uuid: string
   ): Promise<{ ok: boolean; error: string }> {
     return await this.http
       .post<{
         ok: boolean;
         error: string;
-      }>(`${this.apiUrl}/signup`, { email, name, uuid })
+      }>(`${this.apiUrl}/signup`, { email, name, password, uuid })
       .toPromise();
   }
 

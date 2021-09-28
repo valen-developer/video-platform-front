@@ -4,6 +4,7 @@ export abstract class AuthRepository {
   abstract signup(
     email: string,
     name: string,
+    password: string,
     uuid: string
   ): Promise<{ ok: boolean; error?: string }>;
 
