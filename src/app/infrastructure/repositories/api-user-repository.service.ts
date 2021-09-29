@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, pluck } from 'rxjs/operators';
 import { UserRepository } from 'src/app/domain/User/interfaces/UserRepository.interface';
@@ -36,6 +36,15 @@ export class ApiUserRepositoryService implements UserRepository {
         uuid,
       })
       .pipe(pluck('ok'))
+      .toPromise();
+  }
+
+  public async deleteUser(userUuid: string): Promise<boolean> {
+    const params = new HttpParams().set('userUuid', userUuid);
+
+    return this.http
+      .delete<{ ok: boolean }>(`${this.apiUrl}`, { params })
+      .pipe<boolean>(pluck('ok'))
       .toPromise();
   }
 }

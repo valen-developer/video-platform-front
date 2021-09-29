@@ -7,6 +7,7 @@
     <div class="headers-duration">Role</div>
     <div class="headers-duration">Validated</div>
     <div class="headers-duration">Uuid</div>
+    <div class="headers-duration"></div>
   </div>
 
   <div class="content-row grid row" *ngFor="let user of users; index as i">
@@ -23,5 +24,10 @@
       <input type="checkbox" [formControl]="formValidatedControl(i)" />
     </div>
     <div class="content-uuid">{{ user.uuid.value }}</div>
+    <div class="content-icons">
+      <div class="icon-item" (click)="deleteUser(user)">
+        <i class="fas fa-trash-alt"></i>
+      </div>
+    </div>
   </div>
 </div>

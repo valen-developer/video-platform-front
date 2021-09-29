@@ -3,7 +3,7 @@
 }
 .grid {
   display: grid;
-  grid-template-columns: 0.25fr repeat(5, 1fr);
+  grid-template-columns: 0.25fr repeat(5, 1fr) 0.25fr;
   gap: 1rem;
   width: 100%;
 }
@@ -32,4 +32,22 @@
   min-width: 50px;
   overflow: hidden;
   width: 50%;
+}
+
+.content-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.icon-item {
+  z-index: 1;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: 0.3s;
+  &:hover {
+    background-color: var(--hover-contrast);
+    & i {
+      color: var(--danger);
+    }
+  }
 }
