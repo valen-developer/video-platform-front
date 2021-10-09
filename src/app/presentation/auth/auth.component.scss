@@ -5,3 +5,15 @@
 
   padding: 7rem 7rem 0 7rem;
 }
+
+@media (max-width: 1000px) {
+  .auth-wrapper {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-wrapper {
+    padding: 1rem 0;
+  }
+}
