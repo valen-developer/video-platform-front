@@ -31,7 +31,7 @@ export class LastUrlService {
     const lastUrl = localStorage.getItem('lastUrl');
     if (lastUrl) return this.router.navigateByUrl(lastUrl);
 
-    this.router.navigateByUrl('public');
+    this.router.navigateByUrl('');
     return true;
   }
 

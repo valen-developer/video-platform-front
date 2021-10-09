@@ -1,8 +1,8 @@
 <nav class="navbar">
-  <h5 class="app-name" routerLink="/">Video Platform.</h5>
+  <h5 class="app-name">Video Platform.</h5>
 
   <div class="items">
-    <div class="items-item" routerLink="/public/home" routerLinkActive="active">
+    <div class="items-item" routerLink="/home" routerLinkActive="active">
       <i class="fas fa-home"></i>
       <a>Home</a>
     </div>
@@ -32,8 +32,8 @@
       </div>
     </div>
 
-    <span class="profile__name" *ngIf="true" routerLink="/public">{{
-      user?.name?.value || "valentin" | uppercase
+    <span class="profile__name" *ngIf="true">{{
+      user?.name?.value | uppercase
     }}</span>
     <div class="profile-user" (click)="isUserOptionOpen = !isUserOptionOpen">
       <img

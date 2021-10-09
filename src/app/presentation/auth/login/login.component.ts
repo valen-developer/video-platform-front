@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(email, password)
       .then((response) => {
-        if (response) this.router.navigateByUrl('public');
+        if (response) this.router.navigateByUrl('');
       })
       .catch(({ error }) => {
         this.alert.danger(error?.error ?? 'Server error');

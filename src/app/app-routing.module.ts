@@ -6,12 +6,6 @@ import { LoginGuard } from './application/guards/login.guard';
 
 const routes: Routes = [
   {
-    path: 'public',
-    canActivate: [LoginGuard],
-    loadChildren: () =>
-      import('./presentation/public/public.module').then((m) => m.PublicModule),
-  },
-  {
     path: 'admin',
     loadChildren: () =>
       import('./presentation/private/private.module').then(
@@ -24,9 +18,15 @@ const routes: Routes = [
       import('./presentation/auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: '',
+    canActivate: [LoginGuard],
+    loadChildren: () =>
+      import('./presentation/public/public.module').then((m) => m.PublicModule),
+  },
+  {
     path: '**',
     pathMatch: 'full',
-    redirectTo: 'public',
+    redirectTo: '',
   },
 ];
 
