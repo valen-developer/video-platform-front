@@ -70,3 +70,13 @@ $border: none;
   height: 100%;
   width: 100%;
 }
+
+@media (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+  }
+  .video,
+  .sections {
+    width: 100%;
+  }
+}
