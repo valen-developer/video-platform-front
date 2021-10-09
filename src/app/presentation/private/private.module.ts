@@ -10,4 +10,8 @@ import { PrivateComponent } from './private.component';
   declarations: [PrivateComponent],
   imports: [CommonModule, PrivateRoutingModule, AlertModule],
 })
-export class PrivateModule {}
+export class PrivateModule {
+  constructor() {
+    console.log('carga private module');
+  }
+}

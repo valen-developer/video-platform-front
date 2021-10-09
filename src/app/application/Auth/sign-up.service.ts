@@ -26,7 +26,7 @@ export class SignUpService {
       .signup(email, name, password, uuid)
       .then((response) => {
         const { ok } = response;
-        // if (ok) this.router.navigateByUrl('/auth/login');
+        if (ok) this.router.navigateByUrl('/auth/login');
 
         return response;
       });

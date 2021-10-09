@@ -19,12 +19,23 @@ export class LastUrlService {
     this.routerSubscription.unsubscribe();
   }
 
-  public subscribeToRoute() {}
+  public subscribeToRoute() {
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        this.saveLastUrl(e.urlAfterRedirects);
+      }
+    });
+  }
 
-  public navigateToLastUrl(): Promise<boolean> {
-    const lastUrl = localStorage.getItem('last');
+  public async navigateToLastUrl(): Promise<boolean> {
+    const lastUrl = localStorage.getItem('lastUrl');
     if (lastUrl) return this.router.navigateByUrl(lastUrl);
 
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('public');
+    return true;
+  }
+
+  private saveLastUrl(url: string): void {
+    localStorage.setItem('lastUrl', url);
   }
 }

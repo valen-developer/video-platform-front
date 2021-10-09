@@ -34,4 +34,8 @@ import { PlayingAnimationComponent } from './components/playing-animation/playin
   imports: [CommonModule, PublicRoutingModule, VimeModule, SharedModule],
   providers: [],
 })
-export class PublicModule {}
+export class PublicModule {
+  constructor() {
+    console.log('carga public module');
+  }
+}

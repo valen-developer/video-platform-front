@@ -21,14 +21,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.tryLoginToken();
     this.buildForm();
-  }
-
-  private tryLoginToken(): void {
-    this.authService.loginToken().then((isLoging) => {
-      if (isLoging) this.router.navigateByUrl('public');
-    });
   }
 
   get showPassword(): boolean {
@@ -51,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(email, password)
       .then((response) => {
-        if (response) this.router.navigateByUrl('');
+        if (response) this.router.navigateByUrl('public');
       })
       .catch(({ error }) => {
         this.alert.danger(error?.error ?? 'Server error');

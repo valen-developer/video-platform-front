@@ -69,8 +69,6 @@ export class AuthService {
   }
 
   private setUser(user: User | null): void {
-    console.log(user);
-
     this.isUserLogin = user ? true : false;
     this.user = user;
     this.userSubject.next(this.user);

@@ -32,6 +32,7 @@ export class CoursesGetterService {
         const blob = new Blob([buffer]);
         const dataUrl = await blobToUrl(blob);
         return this.domSanitizer.bypassSecurityTrustUrl(dataUrl);
-      });
+      })
+      .catch(() => null);
   }
 }

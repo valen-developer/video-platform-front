@@ -27,4 +27,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AlertModule,
   ],
 })
-export class AuthModule {}
+export class AuthModule {
+  constructor() {
+    console.log('carga auth module');
+  }
+}

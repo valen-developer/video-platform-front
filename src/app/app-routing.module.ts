@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 
+import { LoginGuard } from './application/guards/login.guard';
+
 const routes: Routes = [
   {
     path: 'public',
+    canActivate: [LoginGuard],
     loadChildren: () =>
       import('./presentation/public/public.module').then((m) => m.PublicModule),
   },
@@ -23,7 +26,7 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: 'admin',
+    redirectTo: 'public',
   },
 ];
 

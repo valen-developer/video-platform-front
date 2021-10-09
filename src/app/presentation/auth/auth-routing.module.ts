@@ -24,5 +24,7 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AuthRoutingModule {
-  constructor() {}
+  constructor() {
+    console.log('Auth routing');
+  }
 }

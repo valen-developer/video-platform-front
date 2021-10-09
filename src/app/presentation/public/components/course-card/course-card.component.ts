@@ -36,6 +36,8 @@ export class CourseCardComponent implements OnInit {
 
     this.courseGetter
       .getCourseImageAsDataUrl(this.course.imagePath)
-      .then((img) => (this.imageUrl = img));
+      .then((img) => {
+        if (img) this.imageUrl = img;
+      });
   }
 }

@@ -34,7 +34,7 @@ export class CourseViewComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       const { uuid } = params;
       if (uuid) this.getCourse(uuid);
     });

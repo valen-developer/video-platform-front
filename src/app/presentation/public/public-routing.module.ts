@@ -11,11 +11,19 @@ const routes: Routes = [
   {
     path: '',
     component: PublicComponent,
-    canActivate: [LoginGuard],
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'course', component: CourseViewComponent },
-      { path: '**', pathMatch: 'full', redirectTo: 'home' },
+      {
+        path: 'course/:uuid',
+        pathMatch: 'prefix',
+        component: CourseViewComponent,
+      },
+
+      {
+        path: '**',
+        pathMatch: 'full',
+        redirectTo: 'home',
+      },
     ],
   },
 ];
