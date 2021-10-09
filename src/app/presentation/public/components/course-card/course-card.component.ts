@@ -13,8 +13,7 @@ export class CourseCardComponent implements OnInit {
   @Input() public course: Course;
 
   public title = 'Sin titulo';
-  public imageUrl: string | SafeUrl =
-    '../../../../../assets/images/no-image.jpg';
+  public imageUrl: string | SafeUrl;
   public duration = '';
 
   constructor(private courseGetter: CoursesGetterService) {}
@@ -38,6 +37,10 @@ export class CourseCardComponent implements OnInit {
       .getCourseImageAsDataUrl(this.course.imagePath)
       .then((img) => {
         if (img) this.imageUrl = img;
-      });
+        if (!img) this.imageUrl = '../../../../../assets/images/no-image.jpg';
+      })
+      .catch(
+        () => (this.imageUrl = '../../../../../assets/images/no-image.jpg')
+      );
   }
 }

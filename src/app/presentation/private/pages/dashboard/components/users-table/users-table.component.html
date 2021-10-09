@@ -1,8 +1,67 @@
-<div class="table grid">
-  <!-- Headers -->
+<div class="table-container">
+  <table class="table">
+    <thead class="table-head">
+      <td></td>
+      <td>
+        <div class="table-body-item">Name</div>
+      </td>
+      <td><div class="table-body-item">Email</div></td>
+      <td><div class="table-body-item">Role</div></td>
+      <td><div class="table-body-item">Validated</div></td>
+      <td><div class="table-body-item">Uuid</div></td>
+      <td></td>
+    </thead>
+
+    <tbody class="table-body">
+      <tr *ngFor="let user of users; index as i" class="content-row">
+        <td>
+          <div class="content-image table-body-item">
+            <img
+              src="../../../../../../../assets/images/no-user.svg"
+              alt="no image"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="table-body-item">
+            {{ user.name.value }}
+          </div>
+        </td>
+        <td>
+          <div class="table-body-item">
+            {{ user.email.value }}
+          </div>
+        </td>
+        <td>
+          <div class="table-body-item">
+            {{ user.role.value }}
+          </div>
+        </td>
+        <td>
+          <div class="table-body-item input-container">
+            <input type="checkbox" [formControl]="formValidatedControl(i)" />
+          </div>
+        </td>
+        <td>
+          <div class="table-body-item">
+            {{ user.uuid.value }}
+          </div>
+        </td>
+        <td>
+          <div class="icon-item table-body-item" (click)="deleteUser(user)">
+            <i class="fas fa-trash-alt"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <div class="table grid">
+  
   <div class="headers grid row">
-    <div class="headers-image">Image</div>
-    <div class="headers-title">Name</div>
+    <div class="headers-image">   Image</div>
+    <div class="headers-title">   Name</div>
     <div class="headers-duration">Email</div>
     <div class="headers-duration">Role</div>
     <div class="headers-duration">Validated</div>
@@ -17,9 +76,9 @@
         alt="no image"
       />
     </div>
-    <div class="content-title">{{ user.name.value }}</div>
+    <div class="content-title">   {{ user.name.value }}</div>
     <div class="content-duration">{{ user.email.value }}</div>
-    <div class="content-role">{{ user.role.value }}</div>
+    <div class="content-role">    {{ user.role.value }}</div>
     <div class="content-validated">
       <input type="checkbox" [formControl]="formValidatedControl(i)" />
     </div>
@@ -30,4 +89,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

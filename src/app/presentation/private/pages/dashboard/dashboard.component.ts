@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ToggleNavbarstatusService } from 'src/app/presentation/shared/services/toggle-navbar-status.service';
 
 @Component({
@@ -7,11 +8,11 @@ import { ToggleNavbarstatusService } from 'src/app/presentation/shared/services/
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private toggleDashboardNavbar: ToggleNavbarstatusService) {}
+  public isOpenSidebar: Observable<boolean>;
 
-  ngOnInit(): void {
-    this.toggleDashboardNavbar.isNavOpen$.subscribe(() => {
-      console.log('En dashboard');
-    });
+  constructor(private toggleDashboardNavbar: ToggleNavbarstatusService) {
+    this.isOpenSidebar = this.toggleDashboardNavbar.isNavOpen$;
   }
+
+  ngOnInit(): void {}
 }
