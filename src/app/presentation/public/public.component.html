@@ -1,5 +1,5 @@
-<div class="public-wrapper">
-  <div class="navbar unshow">
+<div class="public-wrapper" #public>
+  <div class="navbar" [ngClass]="{ unshow: isOpenNavbar ? false : true }">
     <app-navbar></app-navbar>
   </div>
   <div class="content">
