@@ -14,6 +14,8 @@ import { CoursesTableComponent } from './components/courses-table/courses-table.
 import { CourseEditorComponent } from './pages/course-editor/course-editor.component';
 import { CourseEditorImageComponent } from './components/course-editor-image/course-editor-image.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
+import { ToggleNavbarstatusService } from 'src/app/presentation/shared/services/toggle-navbar-status.service';
+import { ToggleDashboardSidebarService } from './services/toggleSideBar.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,12 @@ import { UsersTableComponent } from './components/users-table/users-table.compon
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
+  ],
+  providers: [
+    {
+      provide: ToggleNavbarstatusService,
+      useClass: ToggleDashboardSidebarService,
+    },
   ],
 })
 export class DashboardModule {}

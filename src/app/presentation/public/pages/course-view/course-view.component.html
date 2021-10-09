@@ -1,5 +1,13 @@
-<div class="content cinema-mode" [ngClass]="{ cinemamode: isCinemaMode }">
-  <div class="video" [ngClass]="{ cinemamodeVideoPlayer: isCinemaMode }">
+<div
+  class="content cinema-mode"
+  appOpenNavbarSwipper
+  [ngClass]="{ cinemamode: isCinemaMode }"
+>
+  <div
+    class="video"
+    appOpenNavbarSwipper
+    [ngClass]="{ cinemamodeVideoPlayer: isCinemaMode }"
+  >
     <div class="player-container">
       <div class="player">
         <div class="loading-container" *ngIf="!videoUrl">
@@ -16,7 +24,11 @@
       </div>
     </div>
   </div>
-  <div class="sections" [ngClass]="{ cinemamodeSections: isCinemaMode }">
+  <div
+    class="sections"
+    appOpenNavbarSwipper
+    [ngClass]="{ cinemamodeSections: isCinemaMode }"
+  >
     <app-sections-accordion
       *ngIf="course?.sections"
       [sections]="course?.sections"

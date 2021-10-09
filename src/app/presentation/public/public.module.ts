@@ -19,6 +19,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { PlayingAnimationComponent } from './components/playing-animation/playing-animation.component';
 
+import { ToggleNavbarstatusService } from '../shared/services/toggle-navbar-status.service';
+import { TogglePublicNavbarService } from './services/toogle-navbar-state.service';
+
 @NgModule({
   declarations: [
     PublicComponent,
@@ -32,7 +35,12 @@ import { PlayingAnimationComponent } from './components/playing-animation/playin
     PlayingAnimationComponent,
   ],
   imports: [CommonModule, PublicRoutingModule, VimeModule, SharedModule],
-  providers: [],
+  providers: [
+    {
+      provide: ToggleNavbarstatusService,
+      useClass: TogglePublicNavbarService,
+    },
+  ],
 })
 export class PublicModule {
   constructor() {
