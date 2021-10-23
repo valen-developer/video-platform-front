@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      // remember: this.rememberControl,
+      remember: this.rememberControl,
       showPassword: [false],
     });
   }
@@ -59,11 +59,11 @@ export class LoginComponent implements OnInit {
   }
 
   private getRemember(): void {
-    // const email = localStorage.getItem('email');
-    // if (email) {
-    //   this.form.get('email').setValue(email);
-    //   this.form.get('remember').setValue(true);
-    // }
+    const email = localStorage.getItem('email');
+    if (email) {
+      this.form.get('email').setValue(email);
+      this.form.get('remember').setValue(true);
+    }
   }
 
   public onSubmit(): void {
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
 
     const { email, password } = this.form.value;
 
-    // this.setRemember(email);
+    this.setRemember(email);
 
     this.authService
       .login(email, password)

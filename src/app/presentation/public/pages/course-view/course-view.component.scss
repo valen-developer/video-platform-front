@@ -79,4 +79,19 @@ $border: none;
   .sections {
     width: 100%;
   }
+  .container {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .video {
+    padding: 0;
+  }
+  .player-container {
+    padding: 0;
+  }
+  .player {
+    width: 100%;
+  }
 }

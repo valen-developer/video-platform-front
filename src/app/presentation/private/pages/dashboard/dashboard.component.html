@@ -1,7 +1,7 @@
 <div class="dashboard">
   <div
     class="sidebar"
-    [ngClass]="{ unshow: (isOpenSidebar | async) ? false : true }"
+    [ngClass]="{ unshow: (isOpenSidebar || true | async) ? false : true }"
   >
     <app-dashboard-sidebar></app-dashboard-sidebar>
   </div>

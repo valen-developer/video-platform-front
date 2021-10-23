@@ -59,7 +59,7 @@
 
 @media (max-width: 1000px) {
   .table-container {
-    touch-action: pan-x !important;
+    touch-action: pan-y pan-x !important;
     overflow-x: auto;
   }
   .content-image img {

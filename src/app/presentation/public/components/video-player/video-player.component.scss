@@ -9,3 +9,9 @@
   overflow: hidden;
   width: 100%;
 }
+
+@media screen and (max-width: 500px) {
+  .player {
+    border-radius: 0;
+  }
+}
