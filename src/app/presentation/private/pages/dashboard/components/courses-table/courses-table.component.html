@@ -1,31 +1,44 @@
-<div class="table grid">
-  <!-- Headers -->
-  <div class="headers grid row">
-    <div class="headers-image">Image</div>
-    <div class="headers-title">Title</div>
-    <div class="headers-duration">Duration</div>
-  </div>
+<div class="table-container">
+  <table class="table">
+    <thead class="table-head">
+      <td><div class="table-body-item">Image</div></td>
+      <td><div class="table-body-item">Title</div></td>
+      <td><div class="table-body-item">Duration</div></td>
 
-  <div
-    class="content-row grid row"
-    *ngFor="let course of courses"
-    [routerLink]="['/admin/dashboard/course', course?.course?.uuid?.value]"
-  >
-    <div class="content-image">
-      <img
-        *ngIf="!course.imageDataUrl"
-        src="../../../../../../../assets/images/no-image.jpg"
-        alt="no image"
-      />
-      <img
-        *ngIf="course.imageDataUrl"
-        [src]="course.imageDataUrl"
-        alt="course image"
-      />
-    </div>
-    <div class="content-title">{{ course?.course?.title?.value }}</div>
-    <div class="content-duration">
-      {{ course?.course?.duration?.formatToString() }}
-    </div>
-  </div>
+      <td></td>
+    </thead>
+
+    <tbody class="table-body">
+      <tr
+        *ngFor="let course of courses; index as i"
+        class="content-row"
+        [routerLink]="['/admin/dashboard/course', course?.course?.uuid?.value]"
+      >
+        <td>
+          <div class="content-image table-body-item">
+            <img
+              *ngIf="!course.imageDataUrl"
+              src="../../../../../../../assets/images/no-image.jpg"
+              alt="no image"
+            />
+            <img
+              *ngIf="course.imageDataUrl"
+              [src]="course.imageDataUrl"
+              alt="course image"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="table-body-item">
+            {{ course?.course?.title?.value }}
+          </div>
+        </td>
+        <td>
+          <div class="table-body-item">
+            {{ course?.course?.duration?.formatToString() }}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

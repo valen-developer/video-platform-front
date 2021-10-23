@@ -16,7 +16,9 @@ export class CoursesGetterService {
   ) {}
 
   public getAll(): Observable<Course[]> {
-    return this.courseRepository.getAll();
+    return this.courseRepository
+      .getAll()
+      .pipe(map((courses) => courses.filter((c) => c.duration.value > 0)));
   }
 
   public getCourseByUuid(uuid: string): Observable<Course> {
