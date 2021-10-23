@@ -29,9 +29,14 @@ $checkboxSize: 25px;
   left: 0;
 
   border-radius: var(--border-radius);
-  height: 25px;
-  width: 25px;
+  height: $checkboxSize;
+  width: $checkboxSize;
   background-color: #eee;
+  transition: 0.3s ease-out;
+  padding: 0.5rem;
+  & i {
+    color: black;
+  }
 }
 
 .checkbox-container:hover input ~ .checkbox {
@@ -39,7 +44,6 @@ $checkboxSize: 25px;
 }
 
 .checkbox-container:hover input:checked ~ .checkbox {
-  background-color: var(--danger);
 }
 
 .checkbox-container input:checked ~ .checkbox {
