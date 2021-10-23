@@ -8,22 +8,30 @@ import { ToggleNavbarstatusService } from '../services/toggle-navbar-status.serv
   selector: '[appOpenNavbarSwipper]',
 })
 export class OpenNavbarSwipperDirective implements AfterViewInit {
+  private mobileScreenSize = 500;
+  private tabletScreenSize = 1000;
+
   constructor(
     private el: ElementRef,
     private toogleNavbar: ToggleNavbarstatusService
   ) {}
 
   ngAfterViewInit(): void {
-    const mg = new hammerjs.Manager(this.el.nativeElement, {
-      recognizers: [
-        [Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }],
-        [Hammer.Tap, { taps: 1 }],
-      ],
-    });
+    const screenWidth = window.innerWidth;
+    const isTablet = screenWidth <= this.tabletScreenSize;
 
-    mg.on('swiperight', () => this.openNavbar());
-    mg.on('swipeleft', () => this.hideNavbar());
-    mg.on('tap', () => this.hideNavbar());
+    if (isTablet) {
+      const mg = new hammerjs.Manager(this.el.nativeElement, {
+        recognizers: [
+          [Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }],
+          [Hammer.Tap, { taps: 1 }],
+        ],
+      });
+
+      mg.on('swiperight', () => this.openNavbar());
+      mg.on('swipeleft', () => this.hideNavbar());
+      mg.on('tap', () => this.hideNavbar());
+    }
   }
 
   private openNavbar(): void {

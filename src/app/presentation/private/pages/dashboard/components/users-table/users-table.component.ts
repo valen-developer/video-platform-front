@@ -21,8 +21,8 @@ import { AlertService } from 'src/app/presentation/shared/modules/alert/alert.se
 })
 export class UsersTableComponent implements OnInit, OnChanges {
   @Input() public users: User[] = [];
-
   public formArray: FormArray;
+  public user: User;
 
   constructor(
     private fb: FormBuilder,
@@ -36,10 +36,17 @@ export class UsersTableComponent implements OnInit, OnChanges {
     if (this.users.length > 0) this.buildForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = this.authService.user;
+  }
 
   private buildForm(): void {
-    const controls = this.users.map((u) => this.fb.control(u.validated));
+    const controls = this.users.map((u) =>
+      this.fb.control({
+        value: u.validated,
+        disabled: this.isMe(u),
+      })
+    );
     this.formArray = this.fb.array(controls);
     this.subscribeControls(controls);
   }
@@ -60,15 +67,18 @@ export class UsersTableComponent implements OnInit, OnChanges {
     );
   }
 
+  private isMe(u: User): boolean {
+    return u.uuid.value === this.user.uuid.value;
+  }
+
   private updateUserActivation(userIndex: number): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      const own = this.authService.user;
       const user = this.users[userIndex];
 
-      if (own.uuid.value === user.uuid.value) return resolve(false);
+      if (this.isMe(user)) return resolve(false);
 
       this.userActivation
-        .toggleActivation(own.uuid.value, user.uuid.value)
+        .toggleActivation(this.user.uuid.value, user.uuid.value)
         .then((done) => {
           resolve(done);
         })

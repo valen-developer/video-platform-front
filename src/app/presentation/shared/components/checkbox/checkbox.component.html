@@ -1,1 +1,5 @@
-<input type="checkbox" [formControl]="formControl" />
+<input
+  type="checkbox"
+  [formControl]="formControl"
+  [ngClass]="{ disabled: isDisabled }"
+/>

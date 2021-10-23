@@ -33,11 +33,12 @@
   justify-content: center;
   width: 60%;
   position: relative;
-}
-.login-form-item {
   & label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
-    top: 1rem;
+    top: 0;
     bottom: 0;
     right: 1rem;
     font-size: 1.3rem;
@@ -45,13 +46,7 @@
   }
   & label i {
     padding: 8px;
-  }
-  & label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    top: 0;
-    & i.eye {
+    &.eye {
       color: var(--text-primary);
       transition: 0.2s;
       &:hover {
@@ -59,6 +54,15 @@
         border-radius: var(--border-radius);
       }
     }
+  }
+}
+.remember-me {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  & label {
+    position: static;
   }
 }
 
