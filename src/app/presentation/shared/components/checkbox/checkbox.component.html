@@ -1,5 +1,10 @@
-<input
-  type="checkbox"
-  [formControl]="formControl"
-  [ngClass]="{ disabled: isDisabled }"
-/>
+<label class="checkbox-container">
+  <input
+    type="checkbox"
+    [formControl]="formControl"
+    [ngClass]="{ disabled: isDisabled }"
+  />
+  <span class="checkbox">
+    <i class="fas fa-check"></i>
+  </span>
+</label>

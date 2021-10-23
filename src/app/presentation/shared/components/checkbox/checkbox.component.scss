@@ -1,3 +1,65 @@
-input.disabled {
-  background-color: red;
+$checkboxSize: 25px;
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  width: $checkboxSize;
+  height: $checkboxSize;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border-radius: var(--border-radius);
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.checkbox-container:hover input ~ .checkbox {
+  background-color: var(--primary);
+}
+
+.checkbox-container:hover input:checked ~ .checkbox {
+  background-color: var(--danger);
+}
+
+.checkbox-container input:checked ~ .checkbox {
+  background-color: var(--primary);
+}
+
+.checkbox i {
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkbox {
+  & i {
+    display: block;
+  }
+}
+
+.checkbox-container input:disabled ~ .checkbox {
+  background-color: var(--text-secondary);
+}
+
+.checkbox-container:hover input:disabled ~ .checkbox {
+  background-color: var(--text-secondary);
 }
